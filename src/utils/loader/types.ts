@@ -1,7 +1,7 @@
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ComponentType } from 'react';
 
-type LoaderDefaultOptions = {
+type LoaderOptions = {
   delay: number;
   minimumLoading: number;
 };
@@ -12,4 +12,4 @@ type AnyProps = {
   [key: string]: any;
 };
 
-export type { LoaderDefaultOptions, LoadComponent, AnyProps };
+export type { LoaderOptions, LoadComponent, AnyProps };
