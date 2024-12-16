@@ -12,6 +12,8 @@ import Notifications from '@/sections/Notifications';
 import SW from '@/sections/SW';
 import Sidebar from '@/sections/Sidebar';
 
+import './index.css';
+
 function App() {
   return (
     <Fragment>
