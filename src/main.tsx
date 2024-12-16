@@ -12,7 +12,9 @@ Promise.all([import('@/Root'), import('@/App')])
   .then(([{ default: render }, { default: App }]) => {
     render(App);
   })
-  .catch((e) => console.error('Something went wrong!', e));
+  .catch((e: unknown) => {
+    console.error('Something went wrong!', e);
+  });
 
 // welcome message for users in the console
 welcome();

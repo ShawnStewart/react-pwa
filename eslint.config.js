@@ -17,7 +17,7 @@ export default tseslint.config(
     },
   },
   eslint.configs.recommended,
-  tseslint.configs.recommendedTypeChecked,
+  tseslint.configs.strictTypeChecked,
   pluginReact.configs.flat.recommended,
   {
     plugins: { 'react-hooks': pluginReactHooks, 'unused-imports': unusedImports },
@@ -33,6 +33,7 @@ export default tseslint.config(
           checksVoidReturn: false,
         },
       ],
+      '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
       '@typescript-eslint/no-unused-vars': 'off',
       'react/react-in-jsx-scope': 'off',
       'unused-imports/no-unused-imports': 'error',

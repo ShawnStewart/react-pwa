@@ -14,7 +14,6 @@ function NotFound() {
           width="100%"
           height="50%"
           style={{ maxHeight: '60%', maxWidth: '100%' }}
-          frameBorder="0"
           allowFullScreen
         />
         <CenteredFlexBox className="flex-col">

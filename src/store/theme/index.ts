@@ -9,7 +9,9 @@ import type { Actions } from './types';
 const synchronizeWithLocalStorage: AtomEffect<Themes> = ({ onSet, setSelf }) => {
   const storedTheme = localStorage.getItem('theme-mode');
   if (storedTheme) setSelf(storedTheme as Themes);
-  onSet((value) => localStorage.setItem('theme-mode', value));
+  onSet((value) => {
+    localStorage.setItem('theme-mode', value);
+  });
 };
 
 const themeModeState = atom({

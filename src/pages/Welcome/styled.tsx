@@ -1,3 +1,5 @@
+import type { JSX } from 'react';
+
 import clsx from 'clsx';
 
 function Image({ className, ...props }: JSX.IntrinsicElements['img']) {
