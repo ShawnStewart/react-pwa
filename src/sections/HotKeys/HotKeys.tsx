@@ -6,7 +6,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
 
-import { FlexBox } from '@/components/styled';
+import { FlexBox } from '@/components/layout';
 import useHotKeysDialog from '@/store/hotkeys';
 import useSidebar from '@/store/sidebar';
 import useTheme from '@/store/theme';
@@ -34,19 +34,19 @@ function HotKeys() {
     >
       <DialogTitle>Hot Keys</DialogTitle>
       <DialogContent>
-        <FlexBox alignItems="center" height={50} justifyContent="space-between">
+        <FlexBox className="items-center h-12 justify-between">
           <Typography>Toggle Theme</Typography>
           <Button color="warning" variant="outlined" onClick={themeActions.toggle}>
             alt + t
           </Button>
         </FlexBox>
-        <FlexBox alignItems="center" height={50} justifyContent="space-between">
+        <FlexBox className="items-center h-12 justify-between">
           <Typography>Toggle Sidebar</Typography>
           <Button color="warning" variant="outlined" onClick={sidebarActions.toggle}>
             alt + s
           </Button>
         </FlexBox>
-        <FlexBox alignItems="center" height={50} justifyContent="space-between">
+        <FlexBox className="items-center h-12 justify-between">
           <Typography>Toggle Hot Keys&apos; Dialog</Typography>
           <Button color="warning" variant="outlined" onClick={hotKeysDialogActions.toggle}>
             alt + k

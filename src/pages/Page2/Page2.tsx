@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography';
 
 import Meta from '@/components/Meta';
-import { FullSizeCenteredFlexBox } from '@/components/styled';
+import { FullSizeCenteredFlexBox } from '@/components/layout';
 
 function Page2() {
   return (

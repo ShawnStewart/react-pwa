@@ -4,13 +4,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
 import Meta from '@/components/Meta';
-import { FullSizeCenteredFlexBox } from '@/components/styled';
+import { FullSizeCenteredFlexBox } from '@/components/layout';
 
 function Page4() {
   return (
     <>
       <Meta title="page 4" />
-      <FullSizeCenteredFlexBox flexDirection="column">
+      <FullSizeCenteredFlexBox className="flex-col">
         <Typography variant="h3">Page 4</Typography>
         <Button
           to={`/${Math.random().toString()}`}

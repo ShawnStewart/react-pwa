@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import Tooltip from '@mui/material/Tooltip';
 
-import { FlexBox } from '@/components/styled';
+import { FlexBox } from '@/components/layout';
 import { repository, title } from '@/config';
 import useHotKeysDialog from '@/store/hotkeys';
 import useNotifications from '@/store/notifications';
@@ -44,7 +44,7 @@ function Header() {
     <Box sx={{ flexGrow: 1 }} data-pw={`theme-${theme}`}>
       <AppBar color="transparent" elevation={1} position="static">
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <FlexBox sx={{ alignItems: 'center' }}>
+          <FlexBox className="items-center">
             <IconButton
               onClick={sidebarActions.toggle}
               size="large"

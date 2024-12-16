@@ -2,13 +2,13 @@ import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 
-import { CenteredFlexBox, FullSizeCenteredFlexBox } from '@/components/styled';
+import { CenteredFlexBox, FullSizeCenteredFlexBox } from '@/components/layout';
 import { giphy404, messages } from '@/config';
 
 function NotFound() {
   return (
     <Container sx={{ height: '100%' }}>
-      <FullSizeCenteredFlexBox flexDirection="column">
+      <FullSizeCenteredFlexBox className="flex-col">
         <iframe
           src={giphy404}
           width="100%"
@@ -17,7 +17,7 @@ function NotFound() {
           frameBorder="0"
           allowFullScreen
         />
-        <CenteredFlexBox flexDirection="column">
+        <CenteredFlexBox className="flex-col">
           <Typography sx={{ mt: 2 }} variant="h4" color="error">
             404 Not Found
           </Typography>
