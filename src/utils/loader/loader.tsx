@@ -1,8 +1,9 @@
-import { FC, Suspense, lazy, useEffect, useState } from 'react';
+import type { FC } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 
 import sleep from '@/utils/sleep';
 
-import { AnyProps, LoadComponent, LoaderOptions } from './types';
+import type { AnyProps, LoadComponent, LoaderOptions } from './types';
 
 // a little bit complex staff is going on here
 // let me explain it

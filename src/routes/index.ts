@@ -6,7 +6,8 @@ import TerrainIcon from '@mui/icons-material/Terrain';
 
 import asyncComponentLoader from '@/utils/loader';
 
-import { Pages, Routes } from './types';
+import type { Routes } from './types';
+import { Pages } from './types';
 
 const routes: Routes = {
   [Pages.Welcome]: {

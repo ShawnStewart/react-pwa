@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 
-import { SnackbarKey, useSnackbar } from 'notistack';
+import type { SnackbarKey } from 'notistack';
+import { useSnackbar } from 'notistack';
 
 import useNotifications from '@/store/notifications';
 
@@ -44,7 +45,7 @@ function Notifier() {
       }
 
       // keep track of snackbars that we've displayed
-      options.key && storeDisplayed(options.key);
+      if (options.key) storeDisplayed(options.key);
     });
   });
 

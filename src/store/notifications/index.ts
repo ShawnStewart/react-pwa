@@ -5,7 +5,7 @@ import type { SnackbarKey } from 'notistack';
 
 import { notifications as notificationsDefaults } from '@/config';
 
-import { Actions, Notification } from './types';
+import type { Actions, Notification } from './types';
 
 const notificationsState = atom<Notification[]>({
   key: 'notificationsState',

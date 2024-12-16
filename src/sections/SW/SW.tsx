@@ -50,7 +50,7 @@ function SW() {
         },
       });
     }
-  }, [close, needRefresh, offlineReady, notificationsActions, updateServiceWorker]);
+  }, [close, needRefresh, notificationsActions, offlineReady, updateServiceWorker]);
 
   return null;
 }
