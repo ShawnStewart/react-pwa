@@ -3,7 +3,7 @@ import type { FallbackProps } from 'react-error-boundary';
 import { ErrorBoundary } from 'react-error-boundary';
 
 function getDisplayName(WrappedComponent: FC) {
-  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+  return WrappedComponent.displayName ?? (WrappedComponent.name || 'Component');
 }
 
 function withErrorHandler<P extends object>(Component: FC<P>, Fallback: FC<FallbackProps>) {

@@ -17,7 +17,8 @@ export default tseslint.config(
     },
   },
   eslint.configs.recommended,
-  tseslint.configs.strictTypeChecked,
+  tseslint.configs.recommended,
+  tseslint.configs.stylisticTypeChecked,
   pluginReact.configs.flat.recommended,
   {
     plugins: { 'react-hooks': pluginReactHooks, 'unused-imports': unusedImports },

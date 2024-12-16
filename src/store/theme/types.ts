@@ -1,5 +1,5 @@
-type Actions = {
+interface Actions {
   toggle: () => void;
-};
+}
 
 export type { Actions };

@@ -6,7 +6,7 @@ import { RecoilRoot } from 'recoil';
 
 import ThemeProvider from '@/theme/Provider';
 
-const container = document.getElementById('root') as HTMLElement;
+const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 function render(App: ComponentType) {

@@ -1,15 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { ComponentType } from 'react';
 
-type LoaderOptions = {
+interface LoaderOptions {
   delay: number;
   minimumLoading: number;
-};
+}
 
-type LoadComponent = () => Promise<{ default: ComponentType<any> }>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type LoadComponentAsync<C extends ComponentType<any>> = () => Promise<{ default: C }>;
 
-type AnyProps = {
-  [key: string]: any;
-};
-
-export type { LoaderOptions, LoadComponent, AnyProps };
+export type { LoaderOptions, LoadComponentAsync };

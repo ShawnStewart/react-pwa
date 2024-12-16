@@ -1,7 +1,4 @@
 // TODO: needs a better typing for Recoil
-type AtomEffectParams = {
-  // eslint-disable-next-line
-  [key: string]: any;
-};
+type AtomEffectParams = Record<string, unknown>;
 
 export type { AtomEffectParams };

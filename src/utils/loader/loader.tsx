@@ -1,9 +1,9 @@
-import type { FC } from 'react';
+import type { ComponentProps, ComponentType, FunctionComponent } from 'react';
 import { Suspense, lazy, useEffect, useState } from 'react';
 
 import sleep from '@/utils/sleep';
 
-import type { AnyProps, LoadComponent, LoaderOptions } from './types';
+import type { LoadComponentAsync, LoaderOptions } from './types';
 
 // a little bit complex staff is going on here
 // let me explain it
@@ -26,8 +26,8 @@ import type { AnyProps, LoadComponent, LoaderOptions } from './types';
 // takes less than a certain amount of time
 // So, the implementation of it is here:
 
-function getDelayedFallback(Fallback: FC, delay: number) {
-  return function DelayedFallback(props: AnyProps) {
+function getDelayedFallback(Fallback: FunctionComponent, delay: number) {
+  return function DelayedFallback(props: ComponentProps<typeof Fallback>) {
     const [isDelayPassed, setIsDelayPassed] = useState(false);
 
     useEffect(() => {
@@ -57,8 +57,12 @@ function getDelayedFallback(Fallback: FC, delay: number) {
 // The solution of the second problem is to set of a minimum timeout, which will
 // ensure that the fallback component will be rendered for that minimum amount of time
 
-const getLazyComponent = (loadComponent: LoadComponent, loaderOptions: LoaderOptions) =>
-  lazy(() => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function getLazyComponent<C extends ComponentType<any>>(
+  loadComponent: LoadComponentAsync<C>,
+  loaderOptions: LoaderOptions,
+) {
+  return lazy(() => {
     // fix the moment of starting loading
     const start = performance.now();
     // start loading
@@ -97,6 +101,7 @@ const getLazyComponent = (loadComponent: LoadComponent, loaderOptions: LoaderOpt
       return sleep(delay + minimumLoading - diff).then(() => moduleExports);
     });
   });
+}
 
 /* ================================================================================== */
 
@@ -106,11 +111,12 @@ const getLazyComponent = (loadComponent: LoadComponent, loaderOptions: LoaderOpt
 // INFO: the usage of `asyncComponentLoader` looks like this:
 // asyncComponentLoader(() => import('pages/Welcome'))
 
-function asyncComponentLoader(
-  loadComponent: LoadComponent,
-  additionalProps: AnyProps,
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function asyncComponentLoader<C extends ComponentType<any>>(
+  loadComponent: LoadComponentAsync<C>,
+  additionalProps: ComponentProps<C>,
   loaderOptions: LoaderOptions,
-  FallbackWaiting: FC,
+  FallbackWaiting: FunctionComponent,
 ) {
   const Fallback = loaderOptions.delay
     ? getDelayedFallback(FallbackWaiting, loaderOptions.delay)
@@ -118,7 +124,7 @@ function asyncComponentLoader(
 
   const LazyComponent = getLazyComponent(loadComponent, loaderOptions);
 
-  return function AsyncComponent(props: AnyProps) {
+  return function AsyncComponent(props: typeof additionalProps) {
     return (
       <Suspense fallback={<Fallback />}>
         <LazyComponent {...additionalProps} {...props} />

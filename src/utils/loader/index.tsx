@@ -1,15 +1,20 @@
+import type { ComponentProps, ComponentType, FunctionComponent } from 'react';
+
 import Loading from '@/components/Loading';
 import { loaderDefaultOptions } from '@/config';
 
 import asyncComponentLoader from './loader';
-import type { AnyProps, LoadComponent, LoaderOptions } from './types';
+import type { LoadComponentAsync, LoaderOptions } from './types';
 
-const configuredAsyncComponentLoader = (
-  loadComponent: LoadComponent,
-  additionalProps: AnyProps = {},
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function configuredAsyncComponentLoader<C extends ComponentType<any>>(
+  loadComponent: LoadComponentAsync<C>,
+  additionalProps: ComponentProps<C>,
   loaderOptions: LoaderOptions = loaderDefaultOptions,
-  FallbackWaiting = Loading,
-) => asyncComponentLoader(loadComponent, additionalProps, loaderOptions, FallbackWaiting);
+  FallbackWaiting: FunctionComponent = Loading,
+) {
+  return asyncComponentLoader(loadComponent, additionalProps, loaderOptions, FallbackWaiting);
+}
 
 export { loaderDefaultOptions };
 export default configuredAsyncComponentLoader;

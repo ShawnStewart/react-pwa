@@ -12,11 +12,11 @@ enum Pages {
   NotFound,
 }
 
-type PathRouteCustomProps = {
+interface PathRouteCustomProps {
   title?: string;
   component: FC;
   icon?: FC<SvgIconProps>;
-};
+}
 
 type Routes = Record<Pages, PathRouteProps & PathRouteCustomProps>;
 

@@ -15,10 +15,10 @@ declare module 'notistack' {
   }
 }
 
-type Actions = {
+interface Actions {
   push: (notification: Partial<Notification>) => SnackbarKey;
   close: (key: SnackbarKey, dismissAll?: boolean) => void;
   remove: (key: SnackbarKey) => void;
-};
+}
 
 export type { Notification, Actions };
