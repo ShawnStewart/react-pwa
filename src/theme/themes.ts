@@ -35,7 +35,7 @@ const sharedTheme = {
 } as ThemeOptions; // the reason for this casting is deepmerge return type
 // TODO (Suren): replace mui-utils-deepmerge with lodash or ramda deepmerge
 
-const themes: Record<Themes, ThemeOptions> = {
+export const themes: Record<Themes, ThemeOptions> = {
   light: deepmerge(sharedTheme, {
     palette: {
       mode: 'light',
@@ -62,5 +62,3 @@ const themes: Record<Themes, ThemeOptions> = {
     },
   }),
 };
-
-export default themes;

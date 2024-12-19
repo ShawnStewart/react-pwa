@@ -11,15 +11,15 @@ import Tooltip from '@mui/material/Tooltip';
 
 import { FlexBox } from '@/components/layout';
 import { repository, title } from '@/config';
-import useHotKeysDialog from '@/store/hotkeys';
-import useNotifications from '@/store/notifications';
-import useSidebar from '@/store/sidebar';
-import useTheme from '@/store/theme';
+import { useHotKeysDialog } from '@/store/hotkeys';
+import { useNotifications } from '@/store/notifications';
+import { useSidebar } from '@/store/sidebar';
+import { useTheme } from '@/store/theme';
 
 import { HotKeysButton } from './styled';
 import { getRandomJoke } from './utils';
 
-function Header() {
+export function Header() {
   const [, sidebarActions] = useSidebar();
   const [theme, themeActions] = useTheme();
   const [, notificationsActions] = useNotifications();
@@ -96,5 +96,3 @@ function Header() {
     </Box>
   );
 }
-
-export default Header;

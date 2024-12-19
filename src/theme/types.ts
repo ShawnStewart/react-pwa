@@ -1,13 +1,10 @@
 import type { JSX } from 'react';
 
-enum Themes {
+export enum Themes {
   DARK = 'dark',
   LIGHT = 'light',
 }
 
-interface CustomThemeProviderProps {
+export interface CustomThemeProviderProps {
   children: JSX.Element;
 }
-
-export type { CustomThemeProviderProps };
-export { Themes };

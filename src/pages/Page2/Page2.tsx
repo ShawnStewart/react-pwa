@@ -1,9 +1,9 @@
 import Typography from '@mui/material/Typography';
 
-import Meta from '@/components/Meta';
 import { FullSizeCenteredFlexBox } from '@/components/layout';
+import { Meta } from '@/components/Meta';
 
-function Page2() {
+export function Page2() {
   return (
     <>
       <Meta title="page 2" />
@@ -13,5 +13,3 @@ function Page2() {
     </>
   );
 }
-
-export default Page2;

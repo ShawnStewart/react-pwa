@@ -1,3 +1,1 @@
-import Page1 from './Page1';
-
-export default Page1;
+export { Page1 as default } from './Page1';

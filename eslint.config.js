@@ -1,10 +1,11 @@
 import eslint from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
-import pluginReact from 'eslint-plugin-react';
-import pluginReactHooks from 'eslint-plugin-react-hooks';
-import unusedImports from 'eslint-plugin-unused-imports';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+import unusedImportsPlugin from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 
 export default tseslint.config(
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
@@ -19,13 +20,17 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.recommended,
   tseslint.configs.stylisticTypeChecked,
-  pluginReact.configs.flat.recommended,
+  reactPlugin.configs.flat.recommended,
   {
-    plugins: { 'react-hooks': pluginReactHooks, 'unused-imports': unusedImports },
+    plugins: {
+      'react-hooks': reactHooksPlugin,
+      'unused-imports': unusedImportsPlugin,
+      'simple-import-sort': simpleImportSortPlugin,
+    },
   },
   {
     rules: {
-      ...pluginReactHooks.configs.recommended.rules,
+      ...reactHooksPlugin.configs.recommended.rules,
       '@typescript-eslint/consistent-type-exports': 'error',
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-misused-promises': [
@@ -37,6 +42,8 @@ export default tseslint.config(
       '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
       '@typescript-eslint/no-unused-vars': 'off',
       'react/react-in-jsx-scope': 'off',
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',

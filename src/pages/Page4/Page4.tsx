@@ -1,12 +1,11 @@
-import { Link } from 'react-router-dom';
-
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
-import Meta from '@/components/Meta';
 import { FullSizeCenteredFlexBox } from '@/components/layout';
+import { Meta } from '@/components/Meta';
 
-function Page4() {
+export function Page4() {
   return (
     <>
       <Meta title="page 4" />
@@ -26,5 +25,3 @@ function Page4() {
     </>
   );
 }
-
-export default Page4;

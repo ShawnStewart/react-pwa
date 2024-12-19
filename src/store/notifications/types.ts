@@ -21,4 +21,4 @@ interface Actions {
   remove: (key: SnackbarKey) => void;
 }
 
-export type { Notification, Actions };
+export type { Actions, Notification };

@@ -1,15 +1,13 @@
-import { useCallback, useEffect, useRef } from 'react';
-
 import Alert from '@mui/material/Alert';
 import Button from '@mui/material/Button';
-
 import type { SnackbarKey } from 'notistack';
+import { useCallback, useEffect, useRef } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 
-import useNotifications from '@/store/notifications';
+import { useNotifications } from '@/store/notifications';
 
 // TODO (Suren): this should be a custom hook :)
-function SW() {
+export function SW() {
   const [, notificationsActions] = useNotifications();
   const notificationKey = useRef<SnackbarKey | null>(null);
   const {
@@ -54,5 +52,3 @@ function SW() {
 
   return null;
 }
-
-export default SW;

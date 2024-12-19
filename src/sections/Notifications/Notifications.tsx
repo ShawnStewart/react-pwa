@@ -1,15 +1,13 @@
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
+import type { CustomContentProps } from 'notistack';
+import { SnackbarProvider } from 'notistack';
 import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
-
-import type { CustomContentProps } from 'notistack';
-import { SnackbarProvider } from 'notistack';
-
 import { notifications } from '@/config';
 
-import Notifier from './Notifier';
+import { Notifier } from './Notifier';
 
 // here how you can define your own notification component
 
@@ -25,7 +23,7 @@ const CustomNotification = forwardRef(function CustomNotification(
   );
 });
 
-function Notifications() {
+export function Notifications() {
   return (
     <SnackbarProvider
       maxSnack={notifications.maxSnack}
@@ -37,5 +35,3 @@ function Notifications() {
     </SnackbarProvider>
   );
 }
-
-export default Notifications;

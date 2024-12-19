@@ -1,10 +1,8 @@
+import Box from '@mui/material/Box';
+import { clsx } from 'clsx';
 import type { ComponentProps } from 'react';
 
-import Box from '@mui/material/Box';
-
-import { clsx } from 'clsx';
-
-function FlexBox({ children, className, ...props }: ComponentProps<typeof Box>) {
+export function FlexBox({ children, className, ...props }: ComponentProps<typeof Box>) {
   return (
     <Box className={clsx('flex', className)} {...props}>
       {children}
@@ -12,7 +10,7 @@ function FlexBox({ children, className, ...props }: ComponentProps<typeof Box>) 
   );
 }
 
-function CenteredFlexBox({ children, className, ...props }: ComponentProps<typeof FlexBox>) {
+export function CenteredFlexBox({ children, className, ...props }: ComponentProps<typeof FlexBox>) {
   return (
     <FlexBox className={clsx('justify-center items-center', className)} {...props}>
       {children}
@@ -20,7 +18,7 @@ function CenteredFlexBox({ children, className, ...props }: ComponentProps<typeo
   );
 }
 
-function FullSizeCenteredFlexBox({
+export function FullSizeCenteredFlexBox({
   children,
   className,
   ...props
@@ -31,5 +29,3 @@ function FullSizeCenteredFlexBox({
     </CenteredFlexBox>
   );
 }
-
-export { FlexBox, CenteredFlexBox, FullSizeCenteredFlexBox };

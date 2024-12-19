@@ -1,3 +1,1 @@
-import HotKeys from './HotKeys';
-
-export default HotKeys;
+export { HotKeys } from './HotKeys';

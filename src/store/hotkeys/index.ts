@@ -8,7 +8,7 @@ const hotKeysDialogState = atom<boolean>({
   default: false,
 });
 
-function useHotKeysDialog(): [boolean, Actions] {
+export function useHotKeysDialog(): [boolean, Actions] {
   const [isOpen, setIsOpen] = useRecoilState(hotKeysDialogState);
 
   const toggle = useCallback(() => {
@@ -27,5 +27,3 @@ function useHotKeysDialog(): [boolean, Actions] {
 
   return [isOpen, memoizedActions];
 }
-
-export default useHotKeysDialog;

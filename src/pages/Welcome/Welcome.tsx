@@ -1,8 +1,8 @@
 import { clsx } from 'clsx';
 
-import Meta from '@/components/Meta';
 import { FullSizeCenteredFlexBox } from '@/components/layout';
-import useOrientation from '@/hooks/useOrientation';
+import { Meta } from '@/components/Meta';
+import { useOrientation } from '@/hooks/useOrientation';
 
 import muiLogo from './logos/mui.svg';
 import pwaLogo from './logos/pwa.svg';
@@ -13,7 +13,7 @@ import tsLogo from './logos/ts.svg';
 import viteLogo from './logos/vite.svg';
 import { Image } from './styled';
 
-function Welcome() {
+export function Welcome() {
   const isPortrait = useOrientation();
 
   const widthStyles = isPortrait ? 'w-[40%]' : 'w-[30%]';
@@ -34,5 +34,3 @@ function Welcome() {
     </>
   );
 }
-
-export default Welcome;

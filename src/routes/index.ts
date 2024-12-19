@@ -4,12 +4,12 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import HomeIcon from '@mui/icons-material/Home';
 import TerrainIcon from '@mui/icons-material/Terrain';
 
-import asyncComponentLoader from '@/utils/loader';
+import { asyncComponentLoader } from '@/utils/loader';
 
 import type { Routes } from './types';
 import { Pages } from './types';
 
-const routes: Routes = {
+export const routes: Routes = {
   [Pages.Welcome]: {
     component: asyncComponentLoader({
       loadComponentAsync: () => import('@/pages/Welcome'),
@@ -57,5 +57,3 @@ const routes: Routes = {
     path: '*',
   },
 };
-
-export default routes;

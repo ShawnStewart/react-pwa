@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import DefaultIcon from '@mui/icons-material/Deblur';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -7,11 +5,12 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import { Link } from 'react-router-dom';
 
-import routes from '@/routes';
-import useSidebar from '@/store/sidebar';
+import { routes } from '@/routes';
+import { useSidebar } from '@/store/sidebar';
 
-function Sidebar() {
+export function Sidebar() {
   const [isSidebarOpen, sidebarActions] = useSidebar();
 
   return (
@@ -39,5 +38,3 @@ function Sidebar() {
     </SwipeableDrawer>
   );
 }
-
-export default Sidebar;

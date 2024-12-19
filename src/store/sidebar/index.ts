@@ -8,7 +8,7 @@ const sidebarIsOpenState = atom<boolean>({
   default: false,
 });
 
-function useSidebar(): [boolean, Actions] {
+export function useSidebar(): [boolean, Actions] {
   const [isOpen, setIsOpen] = useRecoilState(sidebarIsOpenState);
 
   const toggle = useCallback(() => {
@@ -27,5 +27,3 @@ function useSidebar(): [boolean, Actions] {
 
   return [isOpen, memoizedActions];
 }
-
-export default useSidebar;

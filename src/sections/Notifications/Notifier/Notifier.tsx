@@ -1,14 +1,13 @@
-import { useEffect, useRef } from 'react';
-
 import type { SnackbarKey } from 'notistack';
 import { useSnackbar } from 'notistack';
+import { useEffect, useRef } from 'react';
 
-import useNotifications from '@/store/notifications';
+import { useNotifications } from '@/store/notifications';
 
 // NOTE: this is a workaround for a missing feature in notistack
 // This will be removed once the new version of notistack is released
 // But it works great for now :)
-function Notifier() {
+export function Notifier() {
   const [notifications, actions] = useNotifications();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const displayed = useRef<SnackbarKey[]>([]);
@@ -51,5 +50,3 @@ function Notifier() {
 
   return null;
 }
-
-export default Notifier;

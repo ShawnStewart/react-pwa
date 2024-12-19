@@ -4,23 +4,21 @@ import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { RecoilRoot } from 'recoil';
 
-import ThemeProvider from '@/theme/Provider';
+import { CustomThemeProvider } from '@/theme/Provider';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
-function render(App: ComponentType) {
+export default function render(App: ComponentType) {
   root.render(
     <StrictMode>
       <RecoilRoot>
         <HelmetProvider>
-          <ThemeProvider>
+          <CustomThemeProvider>
             <App />
-          </ThemeProvider>
+          </CustomThemeProvider>
         </HelmetProvider>
       </RecoilRoot>
     </StrictMode>,
   );
 }
-
-export default render;

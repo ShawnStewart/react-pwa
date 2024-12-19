@@ -20,7 +20,7 @@ const themeModeState = atom({
   effects: [synchronizeWithLocalStorage],
 });
 
-function useTheme(): [Themes, Actions] {
+export function useTheme(): [Themes, Actions] {
   const [themeMode, setThemeMode] = useRecoilState(themeModeState);
 
   const toggle = useCallback(() => {
@@ -31,5 +31,3 @@ function useTheme(): [Themes, Actions] {
 
   return [themeMode, memoizedActions];
 }
-
-export default useTheme;

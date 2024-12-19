@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react';
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 
-import sleep from '@/utils/sleep';
+import { sleep } from '@/utils/sleep';
 
 import type { ComponentTypeAny, InferComponentProps, LoadComponentAsyncConfig } from './types';
 
@@ -26,7 +26,7 @@ import type { ComponentTypeAny, InferComponentProps, LoadComponentAsyncConfig } 
 // takes less than a certain amount of time
 // So, the implementation of it is here:
 
-function getDelayedFallback<C extends ComponentTypeAny>({
+export function getDelayedFallback<C extends ComponentTypeAny>({
   FallbackComponent,
   delay,
 }: LoadComponentAsyncConfig<C>) {
@@ -112,7 +112,9 @@ function getLazyComponent<C extends ComponentTypeAny>({
 // INFO: the usage of `asyncComponentLoader` looks like this:
 // asyncComponentLoader(() => import('pages/Welcome'))
 
-function asyncComponentLoader<C extends ComponentTypeAny>(options: LoadComponentAsyncConfig<C>) {
+export function asyncComponentLoader<C extends ComponentTypeAny>(
+  options: LoadComponentAsyncConfig<C>,
+) {
   const { FallbackComponent, delay, loadComponentProps = {} } = options;
   const Fallback = delay ? getDelayedFallback(options) : FallbackComponent;
 
@@ -126,7 +128,3 @@ function asyncComponentLoader<C extends ComponentTypeAny>(options: LoadComponent
     );
   };
 }
-
-export { getDelayedFallback };
-
-export default asyncComponentLoader;

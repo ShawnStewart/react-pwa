@@ -1,6 +1,6 @@
 import { loaderDefaultOptions } from '@/config';
 
-import asyncComponentLoader from './loader';
+import { asyncComponentLoader } from './loader';
 import type { ComponentTypeAny, ConfiguredLoadComponentAsyncConfig } from './types';
 
 function configuredAsyncComponentLoader<C extends ComponentTypeAny>(
@@ -13,5 +13,4 @@ function configuredAsyncComponentLoader<C extends ComponentTypeAny>(
   return asyncComponentLoader(options);
 }
 
-export { loaderDefaultOptions };
-export default configuredAsyncComponentLoader;
+export { configuredAsyncComponentLoader as asyncComponentLoader, loaderDefaultOptions };

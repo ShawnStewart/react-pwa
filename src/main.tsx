@@ -1,4 +1,4 @@
-import welcome from '@/utils/welcome';
+import { logWelcomeMessage } from '@/utils/welcome';
 
 // Root contains the main dependencies and providers of the base app
 //  - React, ReactDom, RecoilRoot, HelmetProvider, ThemeProvider, MUI-core)
@@ -17,7 +17,7 @@ Promise.all([import('@/Root'), import('@/App')])
   });
 
 // welcome message for users in the console
-welcome();
+logWelcomeMessage();
 
 // ts(1208)
 export {};

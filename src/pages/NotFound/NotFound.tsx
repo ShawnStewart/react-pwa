@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import { CenteredFlexBox, FullSizeCenteredFlexBox } from '@/components/layout';
 import { giphy404, messages } from '@/config';
 
-function NotFound() {
+export function NotFound() {
   return (
     <Container sx={{ height: '100%' }}>
       <FullSizeCenteredFlexBox className="flex-col">
@@ -29,5 +29,3 @@ function NotFound() {
     </Container>
   );
 }
-
-export default NotFound;

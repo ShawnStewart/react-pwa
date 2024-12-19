@@ -6,7 +6,7 @@ function getDisplayName(WrappedComponent: FC) {
   return WrappedComponent.displayName ?? (WrappedComponent.name || 'Component');
 }
 
-function withErrorHandler<P extends object>(Component: FC<P>, Fallback: FC<FallbackProps>) {
+export function withErrorHandler<P extends object>(Component: FC<P>, Fallback: FC<FallbackProps>) {
   function ComponentWithErrorHandling(props: P) {
     return (
       <ErrorBoundary FallbackComponent={Fallback}>
@@ -21,5 +21,3 @@ function withErrorHandler<P extends object>(Component: FC<P>, Fallback: FC<Fallb
 
   return ComponentWithErrorHandling;
 }
-
-export { withErrorHandler };

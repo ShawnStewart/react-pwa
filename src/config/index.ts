@@ -1,4 +1,4 @@
-import Loading from '@/components/Loading';
+import { Loading } from '@/components/Loading';
 import isMobile from '@/utils/is-mobile';
 import type { LoaderDefaultOptions } from '@/utils/loader/types';
 
@@ -56,13 +56,13 @@ const defaultMetaTags = {
 const giphy404 = 'https://giphy.com/embed/xTiN0L7EW5trfOvEk0';
 
 export {
-  loaderDefaultOptions,
-  notifications,
   dateFormat,
-  messages,
-  repository,
-  email,
-  title,
   defaultMetaTags,
+  email,
   giphy404,
+  loaderDefaultOptions,
+  messages,
+  notifications,
+  repository,
+  title,
 };
