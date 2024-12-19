@@ -1,5 +1,6 @@
+import Loading from '@/components/Loading';
 import isMobile from '@/utils/is-mobile';
-import type { LoaderOptions } from '@/utils/loader/types';
+import type { LoaderDefaultOptions } from '@/utils/loader/types';
 
 import type { Notifications } from './types';
 
@@ -43,9 +44,10 @@ const notifications: Notifications = {
 
 const loaderDefaultOptions = {
   // no more blinking in your app
+  FallbackComponent: Loading,
   delay: 300, // if your asynchronous process is finished during 300 milliseconds you will not see the loader at all
   minimumLoading: 700, // but if it appears, it will stay for at least 700 milliseconds
-} satisfies LoaderOptions;
+} as const satisfies LoaderDefaultOptions;
 
 const defaultMetaTags = {
   image: '/cover.png',

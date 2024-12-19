@@ -1,7 +1,9 @@
-import type { FC } from 'react';
+import type { ComponentType } from 'react';
 import type { PathRouteProps } from 'react-router-dom';
 
 import type { SvgIconProps } from '@mui/material/SvgIcon';
+
+import type { ComponentTypeAny } from '@/utils/loader/types';
 
 enum Pages {
   Welcome,
@@ -14,8 +16,8 @@ enum Pages {
 
 interface PathRouteCustomProps {
   title?: string;
-  component: FC;
-  icon?: FC<SvgIconProps>;
+  component: ComponentTypeAny;
+  icon?: ComponentType<SvgIconProps>;
 }
 
 type Routes = Record<Pages, PathRouteProps & PathRouteCustomProps>;

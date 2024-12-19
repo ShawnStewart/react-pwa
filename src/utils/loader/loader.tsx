@@ -1,9 +1,9 @@
-import type { ComponentProps, ComponentType, FunctionComponent } from 'react';
+import type { ComponentProps } from 'react';
 import { Suspense, lazy, useEffect, useState } from 'react';
 
 import sleep from '@/utils/sleep';
 
-import type { LoadComponentAsync, LoaderOptions } from './types';
+import type { ComponentTypeAny, InferComponentProps, LoadComponentAsyncConfig } from './types';
 
 // a little bit complex staff is going on here
 // let me explain it
@@ -26,8 +26,11 @@ import type { LoadComponentAsync, LoaderOptions } from './types';
 // takes less than a certain amount of time
 // So, the implementation of it is here:
 
-function getDelayedFallback(Fallback: FunctionComponent, delay: number) {
-  return function DelayedFallback(props: ComponentProps<typeof Fallback>) {
+function getDelayedFallback<C extends ComponentTypeAny>({
+  FallbackComponent,
+  delay,
+}: LoadComponentAsyncConfig<C>) {
+  return function DelayedFallback(props: ComponentProps<typeof FallbackComponent>) {
     const [isDelayPassed, setIsDelayPassed] = useState(false);
 
     useEffect(() => {
@@ -40,7 +43,7 @@ function getDelayedFallback(Fallback: FunctionComponent, delay: number) {
       };
     }, []);
 
-    return isDelayPassed ? <Fallback {...props} /> : null;
+    return isDelayPassed ? <FallbackComponent {...props} /> : null;
   };
 }
 
@@ -57,16 +60,16 @@ function getDelayedFallback(Fallback: FunctionComponent, delay: number) {
 // The solution of the second problem is to set of a minimum timeout, which will
 // ensure that the fallback component will be rendered for that minimum amount of time
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function getLazyComponent<C extends ComponentType<any>>(
-  loadComponent: LoadComponentAsync<C>,
-  loaderOptions: LoaderOptions,
-) {
+function getLazyComponent<C extends ComponentTypeAny>({
+  delay,
+  loadComponentAsync,
+  minimumLoading,
+}: LoadComponentAsyncConfig<C>) {
   return lazy(() => {
     // fix the moment of starting loading
     const start = performance.now();
     // start loading
-    return loadComponent().then((moduleExports) => {
+    return loadComponentAsync().then((moduleExports) => {
       // loading is finished
       const end = performance.now();
       const diff = end - start;
@@ -92,8 +95,6 @@ function getLazyComponent<C extends ComponentType<any>>(
       // so, in the 1) and 3) cases we return the result immediately, and in 2) case we have to wait
       // at least for `delay + minimumLoading - diff` amount of time
 
-      const { delay, minimumLoading } = loaderOptions;
-
       if (diff < delay || (diff > delay && diff > delay + minimumLoading)) {
         return moduleExports;
       }
@@ -111,23 +112,16 @@ function getLazyComponent<C extends ComponentType<any>>(
 // INFO: the usage of `asyncComponentLoader` looks like this:
 // asyncComponentLoader(() => import('pages/Welcome'))
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function asyncComponentLoader<C extends ComponentType<any>>(
-  loadComponent: LoadComponentAsync<C>,
-  additionalProps: ComponentProps<C>,
-  loaderOptions: LoaderOptions,
-  FallbackWaiting: FunctionComponent,
-) {
-  const Fallback = loaderOptions.delay
-    ? getDelayedFallback(FallbackWaiting, loaderOptions.delay)
-    : FallbackWaiting;
+function asyncComponentLoader<C extends ComponentTypeAny>(options: LoadComponentAsyncConfig<C>) {
+  const { FallbackComponent, delay, loadComponentProps = {} } = options;
+  const Fallback = delay ? getDelayedFallback(options) : FallbackComponent;
 
-  const LazyComponent = getLazyComponent(loadComponent, loaderOptions);
+  const LazyComponent = getLazyComponent(options) as ComponentTypeAny;
 
-  return function AsyncComponent(props: typeof additionalProps) {
+  return function AsyncComponent(props: InferComponentProps<C>) {
     return (
       <Suspense fallback={<Fallback />}>
-        <LazyComponent {...additionalProps} {...props} />
+        <LazyComponent {...loadComponentProps} {...(props ?? {})} />
       </Suspense>
     );
   };
