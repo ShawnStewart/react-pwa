@@ -34,7 +34,6 @@
     "@mui/lab": "5.0.0-alpha.156",
     "@mui/material": "^5.15.0",
     "@mui/system": "^5.15.0",
-    "@mui/utils": "^5.15.0",
     "clsx": "^2.1.1",
     "is-mobile": "^4.0.0",
     "notistack": "^3.0.1",

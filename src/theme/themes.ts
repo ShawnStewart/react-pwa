@@ -1,5 +1,6 @@
 import type { ThemeOptions } from '@mui/material/styles';
-import { deepmerge } from '@mui/utils';
+
+import { deepMerge } from '@/utils/deepMerge';
 
 import type { Themes } from './types';
 
@@ -36,7 +37,7 @@ const sharedTheme = {
 // TODO (Suren): replace mui-utils-deepmerge with lodash or ramda deepmerge
 
 export const themes: Record<Themes, ThemeOptions> = {
-  light: deepmerge(sharedTheme, {
+  light: deepMerge(sharedTheme, {
     palette: {
       mode: 'light',
       background: {
@@ -47,9 +48,9 @@ export const themes: Record<Themes, ThemeOptions> = {
         main: '#3f51b5',
       },
     },
-  }),
+  } as const satisfies ThemeOptions),
 
-  dark: deepmerge(sharedTheme, {
+  dark: deepMerge(sharedTheme, {
     palette: {
       mode: 'dark',
       background: {
@@ -60,5 +61,5 @@ export const themes: Record<Themes, ThemeOptions> = {
         main: '#333',
       },
     },
-  }),
+  } as const satisfies ThemeOptions),
 };

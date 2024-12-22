@@ -5,3 +5,5 @@ export type RequiredKeys<T> = {
 }[keyof T];
 
 export type HasRequiredKey<T> = RequiredKeys<T> extends never ? false : true;
+
+export type OneOrMore<T> = [T, ...T[]];

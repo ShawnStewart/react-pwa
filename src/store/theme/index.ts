@@ -16,7 +16,7 @@ const synchronizeWithLocalStorage: AtomEffect<Themes> = ({ onSet, setSelf }) => 
 
 const themeModeState = atom({
   key: 'theme-mode-state',
-  default: 'dark' as Themes,
+  default: Themes.DARK,
   effects: [synchronizeWithLocalStorage],
 });
 
@@ -24,7 +24,7 @@ export function useTheme(): [Themes, Actions] {
   const [themeMode, setThemeMode] = useRecoilState(themeModeState);
 
   const toggle = useCallback(() => {
-    setThemeMode((mode: Themes) => (mode === Themes.DARK ? Themes.LIGHT : Themes.DARK));
+    setThemeMode((mode) => (mode === Themes.DARK ? Themes.LIGHT : Themes.DARK));
   }, [setThemeMode]);
 
   const memoizedActions = useMemo(() => ({ toggle }), [toggle]);
