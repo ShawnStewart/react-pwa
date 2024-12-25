@@ -1,6 +1,13 @@
-import Box from '@mui/material/Box';
 import { clsx } from 'clsx';
-import type { ComponentProps } from 'react';
+import type { ComponentProps, HTMLAttributes } from 'react';
+
+export function Box({ children, className, ...props }: HTMLAttributes<HTMLDivElement>) {
+  return (
+    <div className={className} {...props}>
+      {children}
+    </div>
+  );
+}
 
 export function FlexBox({ children, className, ...props }: ComponentProps<typeof Box>) {
   return (

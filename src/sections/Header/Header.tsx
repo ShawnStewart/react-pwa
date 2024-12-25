@@ -1,27 +1,21 @@
-import GitHubIcon from '@mui/icons-material/GitHub';
-import ThemeIcon from '@mui/icons-material/InvertColors';
-import MenuIcon from '@mui/icons-material/Menu';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
+import { BlendingModeIcon, GitHubLogoIcon } from '@radix-ui/react-icons';
+import { Link } from 'react-router-dom';
 
 import { FlexBox } from '@/components/layout';
+import { Button as ShadButton, buttonVariants } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { repository, title } from '@/config';
+import { cn } from '@/lib/utils';
 import { useHotKeysDialog } from '@/store/hotkeys';
 import { useNotifications } from '@/store/notifications';
-import { useSidebar } from '@/store/sidebar';
 import { useTheme } from '@/store/theme';
 
-import { HotKeysButton } from './styled';
+import { HeaderDrawer } from '../HeaderDrawer/HeaderDrawer';
 import { getRandomJoke } from './utils';
 
 export function Header() {
-  const [, sidebarActions] = useSidebar();
-  const [theme, themeActions] = useTheme();
+  const [, themeActions] = useTheme();
   const [, notificationsActions] = useNotifications();
   const [, hotKeysDialogActions] = useHotKeysDialog();
 
@@ -41,58 +35,67 @@ export function Header() {
   }
 
   return (
-    <Box sx={{ flexGrow: 1 }} data-pw={`theme-${theme}`}>
-      <AppBar color="transparent" elevation={1} position="static">
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <FlexBox className="items-center">
-            <IconButton
-              onClick={sidebarActions.toggle}
-              size="large"
-              edge="start"
-              color="info"
-              aria-label="menu"
-              sx={{ mr: 1 }}
+    <FlexBox className="justify-between px-6 min-h-12 sm:min-h-16">
+      <FlexBox className="items-center">
+        <HeaderDrawer />
+        <ShadButton
+          className="focus-visible:ring-cyan-600"
+          onClick={showNotification}
+          variant="ghost"
+        >
+          {title}
+        </ShadButton>
+      </FlexBox>
+      <FlexBox className="items-center gap-4 py-3">
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <ShadButton
+              aria-label="Open hotkeys dialog"
+              className="bg-transparent focus-visible:ring-cyan-600"
+              onClick={hotKeysDialogActions.open}
+              size="sm"
+              variant="outline"
             >
-              <MenuIcon />
-            </IconButton>
-            <Button onClick={showNotification} color="info">
-              {title}
-            </Button>
-          </FlexBox>
-          <FlexBox>
-            <FlexBox>
-              <Tooltip title="Hot keys" arrow>
-                <HotKeysButton
-                  size="small"
-                  variant="outlined"
-                  aria-label="open hotkeys dialog"
-                  onClick={hotKeysDialogActions.open}
-                >
-                  alt + k
-                </HotKeysButton>
-              </Tooltip>
-            </FlexBox>
-            <Divider orientation="vertical" flexItem />
-            <Tooltip title="It's open source" arrow>
-              <IconButton color="info" size="large" component="a" href={repository} target="_blank">
-                <GitHubIcon />
-              </IconButton>
-            </Tooltip>
-            <Divider orientation="vertical" flexItem />
-            <Tooltip title="Switch theme" arrow>
-              <IconButton
-                color="info"
-                edge="end"
-                size="large"
-                onClick={themeActions.toggle}
-                data-pw="theme-toggle"
-              >
-                <ThemeIcon />
-              </IconButton>
-            </Tooltip>
-          </FlexBox>
-        </Toolbar>
-      </AppBar>
-    </Box>
+              alt + k
+            </ShadButton>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">Hot keys</TooltipContent>
+        </Tooltip>
+        <Separator orientation="vertical" />
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Link
+              className={cn(
+                buttonVariants({
+                  className: 'rounded-full focus-visible:ring-cyan-600 [&_svg]:size-6',
+                  size: 'icon',
+                  variant: 'ghost',
+                }),
+              )}
+              to={repository}
+              target="_blank"
+            >
+              <GitHubLogoIcon />
+            </Link>
+          </TooltipTrigger>
+          <TooltipContent>{"It's open source"}</TooltipContent>
+        </Tooltip>
+        <Separator orientation="vertical" />
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <ShadButton
+              className="rounded-full focus-visible:ring-cyan-600 [&_svg]:size-6"
+              data-pw="theme-toggle"
+              onClick={themeActions.toggle}
+              size="icon"
+              variant="ghost"
+            >
+              <BlendingModeIcon />
+            </ShadButton>
+          </TooltipTrigger>
+          <TooltipContent>Switch theme</TooltipContent>
+        </Tooltip>
+      </FlexBox>
+    </FlexBox>
   );
 }

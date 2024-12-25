@@ -1,6 +1,6 @@
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
+import { Box } from '@/components/layout';
 import { messages } from '@/config';
 
 export function LoaderErrorBoundaryFallback() {

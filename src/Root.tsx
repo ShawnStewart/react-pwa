@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { RecoilRoot } from 'recoil';
 
+import { TooltipProvider } from '@/components/ui/tooltip';
 import { CustomThemeProvider } from '@/theme/Provider';
 
 const container = document.getElementById('root')!;
@@ -15,7 +16,9 @@ export default function render(App: ComponentType) {
       <RecoilRoot>
         <HelmetProvider>
           <CustomThemeProvider>
-            <App />
+            <TooltipProvider>
+              <App />
+            </TooltipProvider>
           </CustomThemeProvider>
         </HelmetProvider>
       </RecoilRoot>

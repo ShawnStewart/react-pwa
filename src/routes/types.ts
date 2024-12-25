@@ -1,5 +1,4 @@
-import type { SvgIconProps } from '@mui/material/SvgIcon';
-import type { ComponentType } from 'react';
+import type { IconProps } from '@radix-ui/react-icons/dist/types';
 import type { PathRouteProps } from 'react-router-dom';
 
 import type { ComponentTypeAny } from '@/utils/loader/types';
@@ -16,7 +15,8 @@ export enum Pages {
 interface PathRouteCustomProps {
   title?: string;
   component: ComponentTypeAny;
-  icon?: ComponentType<SvgIconProps>;
+  icon?: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>;
+  path: string;
 }
 
 export type Routes = Record<Pages, PathRouteProps & PathRouteCustomProps>;

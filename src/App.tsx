@@ -10,7 +10,6 @@ import { Pages } from '@/routes/Pages';
 import { Header } from '@/sections/Header';
 import { HotKeys } from '@/sections/HotKeys';
 import { Notifications } from '@/sections/Notifications';
-import { Sidebar } from '@/sections/Sidebar';
 import { SW } from '@/sections/SW';
 
 function App() {
@@ -22,7 +21,6 @@ function App() {
       <SW />
       <BrowserRouter>
         <Header />
-        <Sidebar />
         <Pages />
       </BrowserRouter>
     </Fragment>

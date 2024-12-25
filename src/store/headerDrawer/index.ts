@@ -3,17 +3,20 @@ import { atom, useRecoilState } from 'recoil';
 
 import type { Actions } from './types';
 
-const sidebarIsOpenState = atom<boolean>({
-  key: 'sidebar-openness-state',
+const headerDrawerIsOpenState = atom<boolean>({
+  key: 'header-drawer-open-state',
   default: false,
 });
 
-export function useSidebar(): [boolean, Actions] {
-  const [isOpen, setIsOpen] = useRecoilState(sidebarIsOpenState);
+export function useHeaderDrawer(): [isOpen: boolean, actions: Actions] {
+  const [isOpen, setIsOpen] = useRecoilState(headerDrawerIsOpenState);
 
-  const toggle = useCallback(() => {
-    setIsOpen((isOpen: boolean) => !isOpen);
-  }, [setIsOpen]);
+  const toggle = useCallback(
+    (forceState?: boolean) => {
+      setIsOpen((isOpen: boolean) => forceState ?? !isOpen);
+    },
+    [setIsOpen],
+  );
 
   const close = useCallback(() => {
     setIsOpen(false);
