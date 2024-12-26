@@ -1,5 +1,5 @@
 interface Actions {
-  toggle: () => void;
+  toggle: (value?: boolean) => void;
   close: () => void;
   open: () => void;
 }

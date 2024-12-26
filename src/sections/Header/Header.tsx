@@ -2,22 +2,21 @@ import { BlendingModeIcon, GitHubLogoIcon } from '@radix-ui/react-icons';
 import { Link } from 'react-router-dom';
 
 import { FlexBox } from '@/components/layout';
-import { Button as ShadButton, buttonVariants } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { repository, title } from '@/config';
 import { cn } from '@/lib/utils';
-import { useHotKeysDialog } from '@/store/hotkeys';
 import { useNotifications } from '@/store/notifications';
 import { useTheme } from '@/store/theme';
 
 import { HeaderDrawer } from '../HeaderDrawer/HeaderDrawer';
+import { HeaderHotkeysDialog } from '../HeaderHotkeys/HeaderHotkeys';
 import { getRandomJoke } from './utils';
 
 export function Header() {
   const [, themeActions] = useTheme();
   const [, notificationsActions] = useNotifications();
-  const [, hotKeysDialogActions] = useHotKeysDialog();
 
   function showNotification() {
     notificationsActions.push({
@@ -38,30 +37,14 @@ export function Header() {
     <FlexBox className="justify-between px-6 min-h-12 sm:min-h-16">
       <FlexBox className="items-center">
         <HeaderDrawer />
-        <ShadButton
-          className="focus-visible:ring-cyan-600"
-          onClick={showNotification}
-          variant="ghost"
-        >
+        <Button className="focus-visible:ring-cyan-600" onClick={showNotification} variant="ghost">
           {title}
-        </ShadButton>
+        </Button>
       </FlexBox>
       <FlexBox className="items-center gap-4 py-3">
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <ShadButton
-              aria-label="Open hotkeys dialog"
-              className="bg-transparent focus-visible:ring-cyan-600"
-              onClick={hotKeysDialogActions.open}
-              size="sm"
-              variant="outline"
-            >
-              alt + k
-            </ShadButton>
-          </TooltipTrigger>
-          <TooltipContent side="bottom">Hot keys</TooltipContent>
-        </Tooltip>
+        <HeaderHotkeysDialog />
         <Separator orientation="vertical" />
+
         <Tooltip>
           <TooltipTrigger asChild>
             <Link
@@ -81,9 +64,10 @@ export function Header() {
           <TooltipContent>{"It's open source"}</TooltipContent>
         </Tooltip>
         <Separator orientation="vertical" />
+
         <Tooltip>
           <TooltipTrigger asChild>
-            <ShadButton
+            <Button
               className="rounded-full focus-visible:ring-cyan-600 [&_svg]:size-6"
               data-pw="theme-toggle"
               onClick={themeActions.toggle}
@@ -91,7 +75,7 @@ export function Header() {
               variant="ghost"
             >
               <BlendingModeIcon />
-            </ShadButton>
+            </Button>
           </TooltipTrigger>
           <TooltipContent>Switch theme</TooltipContent>
         </Tooltip>
