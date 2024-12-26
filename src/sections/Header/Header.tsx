@@ -1,21 +1,16 @@
-import { BlendingModeIcon, GitHubLogoIcon } from '@radix-ui/react-icons';
-import { Link } from 'react-router-dom';
-
 import { FlexBox } from '@/components/layout';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { repository, title } from '@/config';
-import { cn } from '@/lib/utils';
+import { title } from '@/config';
 import { useNotifications } from '@/store/notifications';
-import { useTheme } from '@/store/theme';
 
-import { HeaderDrawer } from '../HeaderDrawer/HeaderDrawer';
-import { HeaderHotkeysDialog } from '../HeaderHotkeys/HeaderHotkeys';
+import { GitHubLink } from './GitHubLink';
+import { HeaderDrawer } from './HeaderDrawer/HeaderDrawer';
+import { HeaderHotkeysDialog } from './HeaderHotkeys/HeaderHotkeys';
+import { ThemeToggle } from './ThemeToggle';
 import { getRandomJoke } from './utils';
 
 export function Header() {
-  const [, themeActions] = useTheme();
   const [, notificationsActions] = useNotifications();
 
   function showNotification() {
@@ -45,40 +40,10 @@ export function Header() {
         <HeaderHotkeysDialog />
         <Separator orientation="vertical" />
 
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Link
-              className={cn(
-                buttonVariants({
-                  className: 'rounded-full focus-visible:ring-cyan-600 [&_svg]:size-6',
-                  size: 'icon',
-                  variant: 'ghost',
-                }),
-              )}
-              to={repository}
-              target="_blank"
-            >
-              <GitHubLogoIcon />
-            </Link>
-          </TooltipTrigger>
-          <TooltipContent>{"It's open source"}</TooltipContent>
-        </Tooltip>
+        <GitHubLink />
         <Separator orientation="vertical" />
 
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              className="rounded-full focus-visible:ring-cyan-600 [&_svg]:size-6"
-              data-pw="theme-toggle"
-              onClick={themeActions.toggle}
-              size="icon"
-              variant="ghost"
-            >
-              <BlendingModeIcon />
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>Switch theme</TooltipContent>
-        </Tooltip>
+        <ThemeToggle />
       </FlexBox>
     </FlexBox>
   );
