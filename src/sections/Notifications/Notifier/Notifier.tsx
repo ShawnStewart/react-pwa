@@ -21,7 +21,7 @@ export function Notifier() {
   }
 
   useEffect(() => {
-    notifications.forEach(({ message, options, dismissed }) => {
+    notifications.forEach(({ Icon, title, message, options, dismissed }) => {
       if (dismissed) {
         // dismiss snackbar using notistack
         closeSnackbar(options.key);
@@ -35,6 +35,8 @@ export function Notifier() {
       if (message) {
         enqueueSnackbar(message, {
           ...options,
+          title,
+          Icon,
           onExited(event, key) {
             // removen this snackbar from the store
             actions.remove(key);

@@ -6,7 +6,6 @@ export const jokes: string[] = [
   'What did the turkey say to the computer? Google, google, google!',
   'Why was the computer cold? It left its Windows open!',
   'There are 10 types of people in this world, those who understand binary and those who dont',
-  "OOP sucks and this one isn't a joke",
   'What did the robot say to the dead robot? Rust-in-peace',
   'Why do programmers prefer dark mode? Because light attracts bugs',
 ];

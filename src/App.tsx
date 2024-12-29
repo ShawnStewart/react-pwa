@@ -9,14 +9,15 @@ import { AppErrorBoundaryFallback } from '@/error-handling/fallbacks/App';
 import { Pages } from '@/routes/Pages';
 import { Header } from '@/sections/Header';
 import { Notifications } from '@/sections/Notifications';
-import { SW } from '@/sections/SW';
+import { useServiceWorker } from '@/sections/ServiceWorker';
 
 function App() {
+  useServiceWorker();
+
   return (
     <Fragment>
       <CssBaseline />
       <Notifications />
-      <SW />
       <BrowserRouter>
         <Header />
         <Pages />

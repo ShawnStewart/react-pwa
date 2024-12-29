@@ -24,6 +24,7 @@ export function Header() {
         // your own `variant`s, see @/sections/Notifications/Notifications.tsx
         variant: 'customNotification',
       },
+      title: 'Notification demo (random IT jokes)',
       message: getRandomJoke(),
     });
   }

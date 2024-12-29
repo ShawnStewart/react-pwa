@@ -1,14 +1,12 @@
-import { CheckCircledIcon } from '@radix-ui/react-icons';
 import type { SnackbarKey } from 'notistack';
 import { useCallback, useEffect, useRef } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 
-import { Alert, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { useNotifications } from '@/store/notifications';
 
 // TODO (Suren): this should be a custom hook :)
-export function SW() {
+export function useServiceWorker() {
   const [, notificationsActions] = useNotifications();
   const notificationKey = useRef<SnackbarKey | null>(null);
   const {
@@ -29,13 +27,10 @@ export function SW() {
   useEffect(() => {
     if (offlineReady) {
       notificationsActions.push({
+        message: 'App is ready to work offline.',
         options: {
+          variant: 'success',
           autoHideDuration: 4500,
-          content: (
-            <Alert>
-              <CheckCircledIcon /> <AlertTitle>App is ready to work offline.</AlertTitle>
-            </Alert>
-          ),
         },
       });
     } else if (needRefresh) {
@@ -46,7 +41,9 @@ export function SW() {
           persist: true,
           action: (
             <>
-              <Button onClick={() => updateServiceWorker(true)}>Reload</Button>
+              <Button className="mr-2" onClick={() => updateServiceWorker(true)}>
+                Reload
+              </Button>
               <Button onClick={close}>Close</Button>
             </>
           ),
@@ -54,6 +51,4 @@ export function SW() {
       });
     }
   }, [close, needRefresh, notificationsActions, offlineReady, updateServiceWorker]);
-
-  return null;
 }
