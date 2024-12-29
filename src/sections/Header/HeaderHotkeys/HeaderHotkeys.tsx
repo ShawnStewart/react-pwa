@@ -32,7 +32,7 @@ export function HeaderHotkeysDialog() {
         <TooltipContent side="bottom">Hot keys</TooltipContent>
       </Tooltip>
 
-      <DialogContent aria-describedby={undefined} className="text-black">
+      <DialogContent aria-describedby={undefined}>
         <DialogHeader>
           <DialogTitle>Hotkeys menu</DialogTitle>
 

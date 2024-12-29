@@ -34,7 +34,7 @@ export function HeaderDrawer() {
         <DrawerOverlay className="bg-transparent" />
         <DrawerContent
           aria-describedby={undefined}
-          className="text-black"
+          className="text-foreground"
           direction="left"
           onEscapeKeyDown={actions.close}
           onPointerDownOutside={actions.close}

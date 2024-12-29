@@ -4,8 +4,8 @@ import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import { RecoilRoot } from 'recoil';
 
+import { ThemeProvider } from '@/components/ui/theme';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { CustomThemeProvider } from '@/theme/Provider';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -15,11 +15,11 @@ export default function render(App: ComponentType) {
     <StrictMode>
       <RecoilRoot>
         <HelmetProvider>
-          <CustomThemeProvider>
+          <ThemeProvider>
             <TooltipProvider>
               <App />
             </TooltipProvider>
-          </CustomThemeProvider>
+          </ThemeProvider>
         </HelmetProvider>
       </RecoilRoot>
     </StrictMode>,

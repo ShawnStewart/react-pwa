@@ -1,9 +1,9 @@
-import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
 import { FullSizeCenteredFlexBox } from '@/components/layout';
 import { Meta } from '@/components/Meta';
 import { buttonVariants } from '@/components/ui/button';
+import { Typography } from '@/components/ui/typography';
 
 export function Page4() {
   return (

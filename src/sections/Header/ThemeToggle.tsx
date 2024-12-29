@@ -1,11 +1,11 @@
 import { BlendingModeIcon } from '@radix-ui/react-icons';
 
 import { Button } from '@/components/ui/button';
+import { useTheme } from '@/components/ui/theme';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { useTheme } from '@/store/theme';
 
 export function ThemeToggle() {
-  const [, themeActions] = useTheme();
+  const { toggleTheme } = useTheme();
 
   return (
     <Tooltip>
@@ -13,7 +13,7 @@ export function ThemeToggle() {
         <Button
           className="rounded-full focus-visible:ring-cyan-600 [&_svg]:size-6"
           data-pw="theme-toggle"
-          onClick={themeActions.toggle}
+          onClick={toggleTheme}
           size="icon"
           variant="ghost"
         >

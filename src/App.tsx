@@ -1,6 +1,5 @@
 import './index.css';
 
-import CssBaseline from '@mui/material/CssBaseline';
 import { Fragment } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -16,7 +15,6 @@ function App() {
 
   return (
     <Fragment>
-      <CssBaseline />
       <Notifications />
       <BrowserRouter>
         <Header />

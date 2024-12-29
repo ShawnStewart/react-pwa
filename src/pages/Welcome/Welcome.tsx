@@ -1,8 +1,7 @@
 import { FullSizeCenteredFlexBox } from '@/components/layout';
 import { Meta } from '@/components/Meta';
+import { useTheme } from '@/components/ui/theme';
 import { cn } from '@/lib/utils';
-import { useTheme } from '@/store/theme';
-import { Themes } from '@/theme/types';
 
 import pwaLogo from './logos/pwa.svg';
 import reactLogo from './logos/react.svg';
@@ -17,7 +16,7 @@ function Logo({ className, ...props }: JSX.IntrinsicElements['img']) {
 }
 
 export function Welcome() {
-  const [theme] = useTheme();
+  const { theme } = useTheme();
 
   return (
     <>
@@ -31,11 +30,7 @@ export function Welcome() {
           src={reactLogo}
           className="max-w-[25%] max-h-[25%] md:max-w-[40%] md:max-h-[40%]"
         />
-        <Logo
-          alt="shadcn"
-          className={cn(theme === Themes.DARK && 'filter invert')}
-          src={shadcnLogo}
-        />
+        <Logo alt="shadcn" className={cn(theme === 'dark' && 'filter invert')} src={shadcnLogo} />
         <Logo alt="recoil" src={recoilLogo} />
         <Logo alt="pwa" src={pwaLogo} />
       </FullSizeCenteredFlexBox>

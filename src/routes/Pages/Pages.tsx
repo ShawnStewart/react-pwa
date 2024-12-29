@@ -6,7 +6,7 @@ import { routes } from '..';
 
 export function Pages() {
   return (
-    <Box className="flex-grow my-4">
+    <Box className="flex-grow py-4 bg-background text-foreground">
       <Routes>
         {Object.values(routes).map(({ path, component: Component }) => {
           return <Route key={path} path={path} element={<Component />} />;

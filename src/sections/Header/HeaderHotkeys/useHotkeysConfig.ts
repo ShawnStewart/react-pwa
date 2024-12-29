@@ -1,11 +1,11 @@
 import { useHotkeys } from 'react-hotkeys-hook';
 
+import { useTheme } from '@/components/ui/theme';
 import { useHeaderDrawer } from '@/store/headerDrawer';
 import { useHotKeysDialog } from '@/store/hotkeys';
-import { useTheme } from '@/store/theme';
 
 export function useHotkeysConfig() {
-  const [, themeActions] = useTheme();
+  const { toggleTheme } = useTheme();
   const [, headerDrawerActions] = useHeaderDrawer();
   const [, hotKeysDialogActions] = useHotKeysDialog();
 
@@ -19,7 +19,7 @@ export function useHotkeysConfig() {
       description: 'Toggle navigation menu',
     },
     THEME: {
-      action: themeActions.toggle,
+      action: toggleTheme,
       key: 'alt+t',
       description: 'Toggle theme',
     },
