@@ -11,7 +11,10 @@ export function useHotkeysConfig() {
 
   const HOTKEYS_CONFIG = {
     HEADER_DRAWER: {
-      action: headerDrawerActions.toggle,
+      action: () => {
+        hotKeysDialogActions.close();
+        headerDrawerActions.toggle();
+      },
       key: 'alt+s',
       description: 'Toggle navigation menu',
     },

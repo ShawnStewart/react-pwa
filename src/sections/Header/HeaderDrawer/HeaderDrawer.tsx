@@ -33,6 +33,7 @@ export function HeaderDrawer() {
       <DrawerPortal>
         <DrawerOverlay className="bg-transparent" />
         <DrawerContent
+          aria-describedby={undefined}
           className="text-black"
           direction="left"
           onEscapeKeyDown={actions.close}

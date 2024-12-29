@@ -1,35 +1,43 @@
-import { clsx } from 'clsx';
-
 import { FullSizeCenteredFlexBox } from '@/components/layout';
 import { Meta } from '@/components/Meta';
-import { useOrientation } from '@/hooks/useOrientation';
+import { cn } from '@/lib/utils';
+import { useTheme } from '@/store/theme';
+import { Themes } from '@/theme/types';
 
-import muiLogo from './logos/mui.svg';
 import pwaLogo from './logos/pwa.svg';
-import reactLogo from './logos/react_ed.svg';
+import reactLogo from './logos/react.svg';
+import reactRouterLogo from './logos/react-router.svg';
 import recoilLogo from './logos/recoil.svg';
-import rrLogo from './logos/rr.svg';
+import shadcnLogo from './logos/shadcn.svg';
 import tsLogo from './logos/ts.svg';
 import viteLogo from './logos/vite.svg';
-import { Image } from './styled';
+
+function Logo({ className, ...props }: JSX.IntrinsicElements['img']) {
+  return <img className={cn('flex-1 max-w-[10%] max-h-[10%] p-2', className)} {...props} />;
+}
 
 export function Welcome() {
-  const isPortrait = useOrientation();
-
-  const widthStyles = isPortrait ? 'w-[40%]' : 'w-[30%]';
-  const heightStyles = isPortrait ? 'h-[30%]' : 'h-[40%]';
+  const [theme] = useTheme();
 
   return (
     <>
       <Meta title="Welcome" />
-      <FullSizeCenteredFlexBox className={clsx(isPortrait && 'flex-col')}>
-        <Image alt="react-router" src={rrLogo} />
-        <Image alt="vite" src={viteLogo} />
-        <Image alt="typescript" src={tsLogo} />
-        <Image alt="react" src={reactLogo} className={clsx(widthStyles, heightStyles)} />
-        <Image alt="mui" src={muiLogo} />
-        <Image alt="recoil" src={recoilLogo} />
-        <Image alt="pwa" src={pwaLogo} />
+      <FullSizeCenteredFlexBox className="flex-col gap-y-8 py-4 sm:flex-row justify-between container mx-auto">
+        <Logo alt="react-router" src={reactRouterLogo} />
+        <Logo alt="vite" src={viteLogo} />
+        <Logo alt="typescript" src={tsLogo} />
+        <Logo
+          alt="react"
+          src={reactLogo}
+          className="max-w-[25%] max-h-[25%] md:max-w-[40%] md:max-h-[40%]"
+        />
+        <Logo
+          alt="shadcn"
+          className={cn(theme === Themes.DARK && 'filter invert')}
+          src={shadcnLogo}
+        />
+        <Logo alt="recoil" src={recoilLogo} />
+        <Logo alt="pwa" src={pwaLogo} />
       </FullSizeCenteredFlexBox>
     </>
   );

@@ -29,7 +29,7 @@ export function Header() {
   }
 
   return (
-    <FlexBox className="justify-between px-6 min-h-12 sm:min-h-16">
+    <FlexBox className="container mx-auto justify-between min-h-12 sm:min-h-16">
       <FlexBox className="items-center">
         <HeaderDrawer />
         <Button className="focus-visible:ring-cyan-600" onClick={showNotification} variant="ghost">

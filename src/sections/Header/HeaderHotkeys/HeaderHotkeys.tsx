@@ -40,7 +40,7 @@ export function HeaderHotkeysDialog() {
             {Object.values(hotkeysConfig).map(({ action, description, key }) => (
               <li className="flex items-center justify-between" key={key}>
                 <span>{description}</span>
-                <Button size="sm" variant="outline" onClick={action}>
+                <Button size="sm" variant="outline" onClick={() => action()}>
                   {key}
                 </Button>
               </li>

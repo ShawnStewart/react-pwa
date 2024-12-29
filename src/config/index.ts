@@ -6,17 +6,18 @@ import type { Notifications } from './types';
 
 const title = 'React PWA';
 
-const email = 'auther-email@gmail.com';
+const email = 'author@email.com';
 
 const repository = 'https://github.com/ShawnStewart/react-pwa';
 
 const messages = {
   app: {
     crash: {
-      title: 'Oooops... Sorry, I guess, something went wrong. You can:',
+      title: 'Oops! Something went wrong...',
+      description: 'You can report the issue or restart the application.',
       options: {
-        email: `contact with author by this email - ${email}`,
-        reset: 'Press here to reset the application',
+        email: `Contact the author`,
+        reset: 'Restart the application',
       },
     },
   },

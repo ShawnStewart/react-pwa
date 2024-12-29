@@ -1,9 +1,10 @@
-import Alert from '@mui/material/Alert';
-import Button from '@mui/material/Button';
+import { CheckCircledIcon } from '@radix-ui/react-icons';
 import type { SnackbarKey } from 'notistack';
 import { useCallback, useEffect, useRef } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 
+import { Alert, AlertTitle } from '@/components/ui/alert';
+import { Button } from '@/components/ui/button';
 import { useNotifications } from '@/store/notifications';
 
 // TODO (Suren): this should be a custom hook :)
@@ -30,7 +31,11 @@ export function SW() {
       notificationsActions.push({
         options: {
           autoHideDuration: 4500,
-          content: <Alert severity="success">App is ready to work offline.</Alert>,
+          content: (
+            <Alert>
+              <CheckCircledIcon /> <AlertTitle>App is ready to work offline.</AlertTitle>
+            </Alert>
+          ),
         },
       });
     } else if (needRefresh) {

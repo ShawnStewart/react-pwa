@@ -1,12 +1,12 @@
-import Box from '@mui/material/Box';
 import { Route, Routes } from 'react-router-dom';
 
+import { Box } from '@/components/layout';
+
 import { routes } from '..';
-import { getPageHeight } from './utils';
 
 export function Pages() {
   return (
-    <Box sx={{ height: (theme) => getPageHeight(theme) }}>
+    <Box className="flex-grow my-4">
       <Routes>
         {Object.values(routes).map(({ path, component: Component }) => {
           return <Route key={path} path={path} element={<Component />} />;

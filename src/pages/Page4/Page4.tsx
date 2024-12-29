@@ -1,9 +1,9 @@
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
 import { FullSizeCenteredFlexBox } from '@/components/layout';
 import { Meta } from '@/components/Meta';
+import { buttonVariants } from '@/components/ui/button';
 
 export function Page4() {
   return (
@@ -11,16 +11,12 @@ export function Page4() {
       <Meta title="page 4" />
       <FullSizeCenteredFlexBox className="flex-col">
         <Typography variant="h3">Page 4</Typography>
-        <Button
+        <Link
+          className={buttonVariants({ className: 'my-8', size: 'sm', variant: 'outline' })}
           to={`/${Math.random().toString()}`}
-          component={Link}
-          variant="outlined"
-          sx={{ mt: 4 }}
-          size="small"
-          color="warning"
         >
-          Whant to check 404?
-        </Button>
+          Want to check 404?
+        </Link>
       </FullSizeCenteredFlexBox>
     </>
   );

@@ -1,10 +1,10 @@
-import Alert from '@mui/material/Alert';
-import AlertTitle from '@mui/material/AlertTitle';
+import { InfoCircledIcon } from '@radix-ui/react-icons';
 import type { CustomContentProps } from 'notistack';
 import { SnackbarProvider } from 'notistack';
 import type { Ref } from 'react';
 import { forwardRef } from 'react';
 
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { notifications } from '@/config';
 
 import { Notifier } from './Notifier';
@@ -16,9 +16,10 @@ const CustomNotification = forwardRef(function CustomNotification(
   ref: Ref<HTMLDivElement>,
 ) {
   return (
-    <Alert ref={ref} severity="info">
+    <Alert ref={ref}>
+      <InfoCircledIcon />
       <AlertTitle>Notification demo (random IT jokes :))</AlertTitle>
-      {message}
+      <AlertDescription>{message}</AlertDescription>
     </Alert>
   );
 });
