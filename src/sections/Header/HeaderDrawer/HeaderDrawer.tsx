@@ -23,7 +23,7 @@ export function HeaderDrawer() {
         <Button
           variant="ghost"
           aria-label="menu"
-          className="mr-4 rounded-full focus-visible:ring-cyan-600"
+          className="rounded-full focus-visible:ring-cyan-600"
           size="icon"
         >
           <HamburgerMenuIcon className="w-4 h-4" />

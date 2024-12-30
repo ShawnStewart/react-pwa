@@ -5,7 +5,7 @@ import { giphy404, messages } from '@/config';
 
 export function NotFound() {
   return (
-    <FullSizeCenteredFlexBox className="container mx-auto flex-col">
+    <FullSizeCenteredFlexBox className="container flex-col">
       <iframe
         src={giphy404}
         width="100%"

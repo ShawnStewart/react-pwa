@@ -30,22 +30,29 @@ export function Header() {
   }
 
   return (
-    <FlexBox className="container mx-auto justify-between min-h-12 sm:min-h-16 bg-background text-foreground">
-      <FlexBox className="items-center">
-        <HeaderDrawer />
-        <Button className="focus-visible:ring-cyan-600" onClick={showNotification} variant="ghost">
-          {title}
-        </Button>
-      </FlexBox>
-      <FlexBox className="items-center gap-4 py-3">
-        <HeaderHotkeysDialog />
-        <Separator orientation="vertical" />
+    <header className="min-h-12 sm:min-h-16 text-foreground sticky top-0 z-50 border-b bg-background/95 supports-[backdrop-filter]:bg-background/60 backdrop-blur">
+      <div className="flex justify-between container">
+        <FlexBox className="items-center gap-2">
+          <HeaderDrawer />
+          <Button
+            className="focus-visible:ring-cyan-600"
+            onClick={showNotification}
+            variant="ghost"
+          >
+            {title}
+          </Button>
+        </FlexBox>
 
-        <GitHubLink />
-        <Separator orientation="vertical" />
+        <FlexBox className="items-center gap-2 py-3">
+          <HeaderHotkeysDialog />
+          <Separator orientation="vertical" />
 
-        <ThemeToggle />
-      </FlexBox>
-    </FlexBox>
+          <GitHubLink />
+          <Separator orientation="vertical" />
+
+          <ThemeToggle />
+        </FlexBox>
+      </div>
+    </header>
   );
 }
