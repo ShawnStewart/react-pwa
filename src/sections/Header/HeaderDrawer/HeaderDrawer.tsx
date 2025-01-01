@@ -26,7 +26,7 @@ export function HeaderDrawer() {
           className="rounded-full focus-visible:ring-cyan-600"
           size="icon"
         >
-          <HamburgerMenuIcon className="w-4 h-4" />
+          <HamburgerMenuIcon className="h-4 w-4" />
         </Button>
       </DrawerTrigger>
 

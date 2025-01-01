@@ -19,7 +19,7 @@ export function FlexBox({ children, className, ...props }: ComponentProps<typeof
 
 export function CenteredFlexBox({ children, className, ...props }: ComponentProps<typeof FlexBox>) {
   return (
-    <FlexBox className={clsx('justify-center items-center', className)} {...props}>
+    <FlexBox className={clsx('items-center justify-center', className)} {...props}>
       {children}
     </FlexBox>
   );
@@ -31,7 +31,7 @@ export function FullSizeCenteredFlexBox({
   ...props
 }: ComponentProps<typeof CenteredFlexBox>) {
   return (
-    <CenteredFlexBox className={clsx('w-full h-full', className)} {...props}>
+    <CenteredFlexBox className={clsx('h-full w-full', className)} {...props}>
       {children}
     </CenteredFlexBox>
   );

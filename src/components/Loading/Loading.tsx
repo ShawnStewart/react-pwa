@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 export function Loading({ className }: { className?: string }) {
   return (
     <FullSizeCenteredFlexBox>
-      <LoaderCircle className={cn('animate-spin w-10 h-10', className)} />
+      <LoaderCircle className={cn('h-10 w-10 animate-spin', className)} />
     </FullSizeCenteredFlexBox>
   );
 }

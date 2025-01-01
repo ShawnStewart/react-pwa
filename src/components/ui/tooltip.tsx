@@ -44,7 +44,7 @@ export const TooltipContent = forwardRef<
           {children}
           <TooltipPrimitive.Arrow
             {...arrowProps}
-            className={cn('fill-primary scale-0', showArrow && 'scale-100', arrowProps.className)}
+            className={cn('scale-0 fill-primary', showArrow && 'scale-100', arrowProps.className)}
           />
         </TooltipPrimitive.Content>
       </TooltipPrimitive.Portal>

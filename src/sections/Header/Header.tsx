@@ -30,8 +30,8 @@ export function Header() {
   }
 
   return (
-    <header className="min-h-12 sm:min-h-16 text-foreground sticky top-0 z-50 border-b bg-background/95 supports-[backdrop-filter]:bg-background/60 backdrop-blur">
-      <div className="flex justify-between container">
+    <header className="sticky top-0 z-50 min-h-12 border-b bg-background/95 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/60 sm:min-h-16">
+      <div className="container flex justify-between">
         <FlexBox className="items-center gap-2">
           <HeaderDrawer />
           <Button

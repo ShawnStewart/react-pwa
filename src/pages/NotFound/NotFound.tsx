@@ -17,7 +17,7 @@ export function NotFound() {
         <Typography className="mt-2" variant="h4" color="error">
           404 Not Found
         </Typography>
-        <Separator className="w-4/5 my-3" />
+        <Separator className="my-3 w-4/5" />
         <Typography variant="h4">{messages[404]}</Typography>
       </CenteredFlexBox>
     </FullSizeCenteredFlexBox>

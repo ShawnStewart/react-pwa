@@ -11,7 +11,7 @@ interface NavigationMenuProps {
 
 export function NavigationMenu({ onNavigationSelect }: NavigationMenuProps) {
   return (
-    <ul className="pt-14 pb-2">
+    <ul className="pb-2 pt-14">
       {Object.values(routes)
         .filter((route) => route.title)
         .map(({ path, title, icon: Icon }) => (

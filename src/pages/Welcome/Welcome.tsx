@@ -12,7 +12,7 @@ import tsLogo from './logos/ts.svg';
 import viteLogo from './logos/vite.svg';
 
 function Logo({ className, ...props }: JSX.IntrinsicElements['img']) {
-  return <img className={cn('flex-1 max-w-[10%] max-h-[10%] p-2', className)} {...props} />;
+  return <img className={cn('max-h-[14%] max-w-[14%] flex-1 p-2', className)} {...props} />;
 }
 
 export function Welcome() {
@@ -21,16 +21,28 @@ export function Welcome() {
   return (
     <>
       <Meta title="Welcome" />
-      <FullSizeCenteredFlexBox className="flex-col gap-y-8 py-4 sm:flex-row justify-between container mx-auto">
+      <FullSizeCenteredFlexBox className="container flex-col justify-between gap-y-8 py-4 sm:flex-row">
         <Logo alt="react-router" src={reactRouterLogo} />
         <Logo alt="vite" src={viteLogo} />
         <Logo alt="typescript" src={tsLogo} />
         <Logo
           alt="react"
           src={reactLogo}
-          className="max-w-[25%] max-h-[25%] md:max-w-[40%] md:max-h-[40%]"
+          className="max-h-[25%] max-w-[25%] md:max-h-[40%] md:max-w-[40%]"
         />
-        <Logo alt="shadcn" className={cn(theme === 'dark' && 'filter invert')} src={shadcnLogo} />
+        <Logo alt="shadcn" className={cn(theme === 'dark' && 'invert filter')} src={shadcnLogo} />
+        <Logo alt="recoil" src={recoilLogo} />
+        <Logo alt="pwa" src={pwaLogo} />
+
+        <Logo alt="react-router" src={reactRouterLogo} />
+        <Logo alt="vite" src={viteLogo} />
+        <Logo alt="typescript" src={tsLogo} />
+        <Logo
+          alt="react"
+          src={reactLogo}
+          className="max-h-[25%] max-w-[25%] md:max-h-[40%] md:max-w-[40%]"
+        />
+        <Logo alt="shadcn" className={cn(theme === 'dark' && 'invert filter')} src={shadcnLogo} />
         <Logo alt="recoil" src={recoilLogo} />
         <Logo alt="pwa" src={pwaLogo} />
       </FullSizeCenteredFlexBox>
