@@ -16,41 +16,41 @@ export const routes: Routes = {
     component: asyncComponentLoader({
       loadComponentAsync: () => import('@/pages/Welcome'),
     }),
+    icon: HomeIcon,
     path: '/',
     title: 'Welcome',
-    icon: HomeIcon,
   },
   [Pages.Page1]: {
     component: asyncComponentLoader({
       loadComponentAsync: () => import('@/pages/Page1'),
     }),
+    icon: GitHubLogoIcon,
     path: '/page-1',
     title: 'Page 1',
-    icon: GitHubLogoIcon,
   },
   [Pages.Page2]: {
     component: asyncComponentLoader({
       loadComponentAsync: () => import('@/pages/Page2'),
     }),
+    icon: CheckCircledIcon,
     path: '/page-2',
     title: 'Page 2',
-    icon: CheckCircledIcon,
   },
   [Pages.Page3]: {
     component: asyncComponentLoader({
       loadComponentAsync: () => import('@/pages/Page3'),
     }),
+    icon: ImageIcon,
     path: '/page-3',
     title: 'Page 3',
-    icon: ImageIcon,
   },
   [Pages.Page4]: {
     component: asyncComponentLoader({
       loadComponentAsync: () => import('@/pages/Page4'),
     }),
+    icon: ChatBubbleIcon,
     path: '/page-4',
     title: 'Page 4',
-    icon: ChatBubbleIcon,
   },
   [Pages.NotFound]: {
     component: asyncComponentLoader({

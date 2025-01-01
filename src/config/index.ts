@@ -11,36 +11,36 @@ const email = 'author@email.com';
 const repository = 'https://github.com/ShawnStewart/react-pwa';
 
 const messages = {
+  404: 'Hey bro? What are you looking for?',
   app: {
     crash: {
-      title: 'Oops! Something went wrong...',
       description: 'You can report the issue or restart the application.',
       options: {
         email: `Contact the author`,
         reset: 'Restart the application',
       },
+      title: 'Oops! Something went wrong...',
     },
-  },
-  loader: {
-    fail: 'Hmmmmm, there is something wrong with this component loading process... Maybe trying later would be the best idea',
   },
   images: {
     failed: 'something went wrong during image loading :(',
   },
-  404: 'Hey bro? What are you looking for?',
+  loader: {
+    fail: 'Hmmmmm, there is something wrong with this component loading process... Maybe trying later would be the best idea',
+  },
 };
 
 const dateFormat = 'MMMM DD, YYYY';
 
 const notifications: Notifications = {
+  maxSnack: isMobile ? 3 : 4,
   options: {
     anchorOrigin: {
-      vertical: 'bottom',
       horizontal: 'left',
+      vertical: 'bottom',
     },
     autoHideDuration: 6000,
   },
-  maxSnack: isMobile ? 3 : 4,
 };
 
 const loaderDefaultOptions = {
@@ -51,8 +51,8 @@ const loaderDefaultOptions = {
 } as const satisfies LoaderDefaultOptions;
 
 const defaultMetaTags = {
-  image: '/cover.png',
   description: 'Starter kit for modern web applications',
+  image: '/cover.png',
 };
 const giphy404 = 'https://giphy.com/embed/xTiN0L7EW5trfOvEk0';
 

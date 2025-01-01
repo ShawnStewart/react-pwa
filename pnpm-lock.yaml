@@ -117,6 +117,9 @@ importers:
       eslint-plugin-simple-import-sort:
         specifier: ^12.1.1
         version: 12.1.1(eslint@9.17.0(jiti@1.21.7))
+      eslint-plugin-sort-keys-fix:
+        specifier: ^1.1.2
+        version: 1.1.2
       eslint-plugin-unused-imports:
         specifier: ^4.1.4
         version: 4.1.4(@typescript-eslint/eslint-plugin@8.18.2(@typescript-eslint/parser@8.18.2(eslint@9.17.0(jiti@1.21.7))(typescript@5.3.3))(eslint@9.17.0(jiti@1.21.7))(typescript@5.3.3))(eslint@9.17.0(jiti@1.21.7))
@@ -1519,6 +1522,11 @@ packages:
     resolution: {integrity: sha512-ueEepnujpqee2o5aIYnvHU6C0A42MNdsIDeqy5BydrkuC5R1ZuUFnm27EeFJGoEHJQgn3uleRvmTXaJgfXbt4g==}
     engines: {node: '>=0.4.0'}
 
+  acorn@7.4.1:
+    resolution: {integrity: sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==}
+    engines: {node: '>=0.4.0'}
+    hasBin: true
+
   acorn@8.14.0:
     resolution: {integrity: sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==}
     engines: {node: '>=0.4.0'}
@@ -2015,6 +2023,10 @@ packages:
     peerDependencies:
       eslint: '>=5.0.0'
 
+  eslint-plugin-sort-keys-fix@1.1.2:
+    resolution: {integrity: sha512-DNPHFGCA0/hZIsfODbeLZqaGY/+q3vgtshF85r+YWDNCQ2apd9PNs/zL6ttKm0nD1IFwvxyg3YOTI7FHl4unrw==}
+    engines: {node: '>=0.10.0'}
+
   eslint-plugin-unused-imports@4.1.4:
     resolution: {integrity: sha512-YptD6IzQjDardkl0POxnnRBhU1OEePMV0nd6siHaRBbd+lyh6NAhFEobiznKU7kTsSsDeSD62Pe7kAM1b7dAZQ==}
     peerDependencies:
@@ -2027,6 +2039,10 @@ packages:
   eslint-scope@8.2.0:
     resolution: {integrity: sha512-PHlWUfG6lvPc3yvP5A4PNyBL1W8fkDUccmI21JUu/+GKZBoH/W5u6usENXUrWFRsyoW5ACUjFGgAFQp5gUlb/A==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  eslint-visitor-keys@1.3.0:
+    resolution: {integrity: sha512-6J72N8UNa462wa/KFODt/PJ3IU60SDpC3QXC1Hjc1BXXpfL2C9R5+AU7jhe0F6GREqVMh4Juu+NY7xn+6dipUQ==}
+    engines: {node: '>=4'}
 
   eslint-visitor-keys@3.4.3:
     resolution: {integrity: sha512-wpc+LXeiyiisxPlEkUzU6svyS1frIO3Mgxj1fdy7Pm8Ygzguax2N3Fa/D/ag1WqbOprdI+uY6wMUl8/a2G+iag==}
@@ -2049,6 +2065,10 @@ packages:
   espree@10.3.0:
     resolution: {integrity: sha512-0QYC8b24HWY8zjRnDTL6RiHfDbAWn63qb4LMj1Z4b076A4une81+z03Kg7l7mn/48PUTqoLptSXez8oknU8Clg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  espree@6.2.1:
+    resolution: {integrity: sha512-ysCxRQY3WaXJz9tdbWOwuWr5Y/XrPTGX9Kiz3yoUXwW0VZ4w30HTkQLaGx/+ttFjF8i+ACbArnB4ce68a9m5hw==}
+    engines: {node: '>=6.0.0'}
 
   esquery@1.6.0:
     resolution: {integrity: sha512-ca9pw9fomFcKPvFLXhBKUK90ZvGibiGOvRJNbjljY7s7uq/5YO4BOzcYtJqExdx99rF6aAcnRxHmcUHcz6sQsg==}
@@ -3219,6 +3239,10 @@ packages:
   require-from-string@2.0.2:
     resolution: {integrity: sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==}
     engines: {node: '>=0.10.0'}
+
+  requireindex@1.2.0:
+    resolution: {integrity: sha512-L9jEkOi3ASd9PYit2cwRfyppc9NoABujTP8/5gFcbERmo5jUoAKovIC3fsF17pkTnGsrByysqX+Kxd2OTNI1ww==}
+    engines: {node: '>=0.10.5'}
 
   resolve-from@4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
@@ -5326,6 +5350,10 @@ snapshots:
       mime-types: 2.1.35
       negotiator: 0.6.3
 
+  acorn-jsx@5.3.2(acorn@7.4.1):
+    dependencies:
+      acorn: 7.4.1
+
   acorn-jsx@5.3.2(acorn@8.14.0):
     dependencies:
       acorn: 8.14.0
@@ -5333,6 +5361,8 @@ snapshots:
   acorn-walk@8.3.4:
     dependencies:
       acorn: 8.14.0
+
+  acorn@7.4.1: {}
 
   acorn@8.14.0: {}
 
@@ -5942,6 +5972,13 @@ snapshots:
     dependencies:
       eslint: 9.17.0(jiti@1.21.7)
 
+  eslint-plugin-sort-keys-fix@1.1.2:
+    dependencies:
+      espree: 6.2.1
+      esutils: 2.0.3
+      natural-compare: 1.4.0
+      requireindex: 1.2.0
+
   eslint-plugin-unused-imports@4.1.4(@typescript-eslint/eslint-plugin@8.18.2(@typescript-eslint/parser@8.18.2(eslint@9.17.0(jiti@1.21.7))(typescript@5.3.3))(eslint@9.17.0(jiti@1.21.7))(typescript@5.3.3))(eslint@9.17.0(jiti@1.21.7)):
     dependencies:
       eslint: 9.17.0(jiti@1.21.7)
@@ -5952,6 +5989,8 @@ snapshots:
     dependencies:
       esrecurse: 4.3.0
       estraverse: 5.3.0
+
+  eslint-visitor-keys@1.3.0: {}
 
   eslint-visitor-keys@3.4.3: {}
 
@@ -6003,6 +6042,12 @@ snapshots:
       acorn: 8.14.0
       acorn-jsx: 5.3.2(acorn@8.14.0)
       eslint-visitor-keys: 4.2.0
+
+  espree@6.2.1:
+    dependencies:
+      acorn: 7.4.1
+      acorn-jsx: 5.3.2(acorn@7.4.1)
+      eslint-visitor-keys: 1.3.0
 
   esquery@1.6.0:
     dependencies:
@@ -7111,6 +7156,8 @@ snapshots:
       jsesc: 3.0.2
 
   require-from-string@2.0.2: {}
+
+  requireindex@1.2.0: {}
 
   resolve-from@4.0.0: {}
 

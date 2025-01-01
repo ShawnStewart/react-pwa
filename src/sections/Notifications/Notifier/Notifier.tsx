@@ -35,13 +35,13 @@ export function Notifier() {
       if (message) {
         enqueueSnackbar(message, {
           ...options,
-          title,
           Icon,
           onExited(_event, key) {
             // removen this snackbar from the store
             actions.remove(key);
             removeDisplayed(key);
           },
+          title,
         });
       }
 

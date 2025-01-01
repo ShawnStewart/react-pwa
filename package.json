@@ -67,6 +67,7 @@
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^15.13.0",
     "https-localhost": "^4.7.1",

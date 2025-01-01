@@ -4,8 +4,8 @@ import { atom, useRecoilState } from 'recoil';
 import type { Actions } from './types';
 
 const headerDrawerIsOpenState = atom<boolean>({
-  key: 'header-drawer-open-state',
   default: false,
+  key: 'header-drawer-open-state',
 });
 
 export function useHeaderDrawer(): [isOpen: boolean, actions: Actions] {
@@ -26,7 +26,7 @@ export function useHeaderDrawer(): [isOpen: boolean, actions: Actions] {
     setIsOpen(true);
   }, [setIsOpen]);
 
-  const memoizedActions = useMemo(() => ({ toggle, close, open }), [toggle, close, open]);
+  const memoizedActions = useMemo(() => ({ close, open, toggle }), [toggle, close, open]);
 
   return [isOpen, memoizedActions];
 }

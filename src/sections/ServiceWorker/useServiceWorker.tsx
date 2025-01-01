@@ -29,16 +29,14 @@ export function useServiceWorker() {
       notificationsActions.push({
         message: 'App is ready to work offline.',
         options: {
-          variant: 'success',
           autoHideDuration: 4500,
+          variant: 'success',
         },
       });
     } else if (needRefresh) {
       notificationKey.current = notificationsActions.push({
         message: 'New content is available, click on reload button to update.',
         options: {
-          variant: 'warning',
-          persist: true,
           action: (
             <>
               <Button className="mr-2" onClick={() => updateServiceWorker(true)}>
@@ -47,6 +45,8 @@ export function useServiceWorker() {
               <Button onClick={close}>Close</Button>
             </>
           ),
+          persist: true,
+          variant: 'warning',
         },
       });
     }

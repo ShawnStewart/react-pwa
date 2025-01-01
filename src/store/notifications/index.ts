@@ -7,8 +7,8 @@ import { notifications as notificationsDefaults } from '@/config';
 import type { Actions, Notification } from './types';
 
 const notificationsState = atom<Notification[]>({
-  key: 'notificationsState',
   default: [],
+  key: 'notificationsState',
 });
 
 export function useNotifications(): [Notification[], Actions] {
@@ -23,8 +23,8 @@ export function useNotifications(): [Notification[], Actions] {
         ...notifications,
         {
           ...notification,
-          message: notification.message,
           dismissed: false,
+          message: notification.message,
           options: {
             ...notificationsDefaults.options,
             ...notification.options,
@@ -60,7 +60,7 @@ export function useNotifications(): [Notification[], Actions] {
     [setNotifications],
   );
 
-  const actions = useMemo(() => ({ push, close, remove }), [push, close, remove]);
+  const actions = useMemo(() => ({ close, push, remove }), [push, close, remove]);
 
   return [notifications, actions];
 }

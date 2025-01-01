@@ -15,18 +15,18 @@ export function useHotkeysConfig() {
         hotKeysDialogActions.close();
         headerDrawerActions.toggle();
       },
-      key: 'alt+s',
       description: 'Toggle navigation menu',
-    },
-    THEME: {
-      action: toggleTheme,
-      key: 'alt+t',
-      description: 'Toggle theme',
+      key: 'alt+s',
     },
     HOTKEYS_MENU: {
       action: hotKeysDialogActions.toggle,
-      key: 'alt+k',
       description: 'Toggle hotkeys menu',
+      key: 'alt+k',
+    },
+    THEME: {
+      action: toggleTheme,
+      description: 'Toggle theme',
+      key: 'alt+t',
     },
   } as const;
 

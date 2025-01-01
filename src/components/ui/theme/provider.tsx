@@ -51,9 +51,9 @@ export function ThemeProvider({
   }, []);
 
   const value: ThemeProviderState = {
+    setTheme,
     theme,
     toggleTheme,
-    setTheme,
   };
 
   return (

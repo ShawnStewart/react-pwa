@@ -1,4 +1,3 @@
-import eslint from '@eslint/js';
 import tsParser from '@typescript-eslint/parser';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
@@ -6,6 +5,7 @@ import unusedImportsPlugin from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
+import sortKeysFixPlugin from 'eslint-plugin-sort-keys-fix';
 
 export default tseslint.config(
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
@@ -25,6 +25,7 @@ export default tseslint.config(
       'react-hooks': reactHooksPlugin,
       'unused-imports': unusedImportsPlugin,
       'simple-import-sort': simpleImportSortPlugin,
+      'sort-keys-fix': sortKeysFixPlugin,
     },
   },
   {
@@ -50,6 +51,7 @@ export default tseslint.config(
       'react/react-in-jsx-scope': 'off',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',
+      'sort-keys-fix/sort-keys-fix': 'warn',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'warn',

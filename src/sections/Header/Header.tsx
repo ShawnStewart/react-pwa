@@ -15,6 +15,7 @@ export function Header() {
 
   function showNotification() {
     notificationsActions.push({
+      message: getRandomJoke(),
       options: {
         // Show fully customized notification
         // Usually, to show a notification, you'll use something like this:
@@ -25,7 +26,6 @@ export function Header() {
         variant: 'customNotification',
       },
       title: 'Notification demo (random IT jokes)',
-      message: getRandomJoke(),
     });
   }
 
