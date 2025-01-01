@@ -23,10 +23,10 @@ const CustomNotification = forwardRef<HTMLDivElement, CustomNotificationProps>(
 export function Notifications() {
   return (
     <SnackbarProvider
-      maxSnack={notifications.maxSnack}
       Components={{
         customNotification: CustomNotification,
       }}
+      maxSnack={notifications.maxSnack}
     >
       <Notifier />
     </SnackbarProvider>

@@ -29,8 +29,8 @@ export function Welcome() {
         <Logo alt="typescript" src={tsLogo} />
         <Logo
           alt="react"
-          src={reactLogo}
           className="max-h-[25%] max-w-[25%] md:max-h-[40%] md:max-w-[40%]"
+          src={reactLogo}
         />
         <Logo alt="shadcn" className={cn(theme === 'dark' && 'invert filter')} src={shadcnLogo} />
         <Logo alt="recoil" src={recoilLogo} />
@@ -41,8 +41,8 @@ export function Welcome() {
         <Logo alt="typescript" src={tsLogo} />
         <Logo
           alt="react"
-          src={reactLogo}
           className="max-h-[25%] max-w-[25%] md:max-h-[40%] md:max-w-[40%]"
+          src={reactLogo}
         />
         <Logo alt="shadcn" className={cn(theme === 'dark' && 'invert filter')} src={shadcnLogo} />
         <Logo alt="recoil" src={recoilLogo} />

@@ -9,7 +9,7 @@ export function Pages() {
     <Box className="flex-grow bg-background py-4 text-foreground">
       <Routes>
         {Object.values(routes).map(({ path, component: Component }) => {
-          return <Route key={path} path={path} element={<Component />} />;
+          return <Route element={<Component />} key={path} path={path} />;
         })}
       </Routes>
     </Box>

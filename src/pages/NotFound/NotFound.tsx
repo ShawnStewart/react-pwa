@@ -7,14 +7,14 @@ export function NotFound() {
   return (
     <FullSizeCenteredFlexBox className="container flex-col">
       <iframe
-        src={giphy404}
-        width="100%"
-        height="50%"
-        style={{ maxHeight: '60%', maxWidth: '100%' }}
         allowFullScreen
+        height="50%"
+        src={giphy404}
+        style={{ maxHeight: '60%', maxWidth: '100%' }}
+        width="100%"
       />
       <CenteredFlexBox className="flex-col items-center px-4">
-        <Typography className="mt-2" variant="h4" color="error">
+        <Typography className="mt-2" color="error" variant="h4">
           404 Not Found
         </Typography>
         <Separator className="my-3 w-4/5" />

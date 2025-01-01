@@ -9,8 +9,8 @@ export const DialogDescription = forwardRef<
   ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
-    ref={ref}
     className={cn('text-sm text-muted-foreground', className)}
+    ref={ref}
     {...props}
   />
 ));

@@ -18,13 +18,13 @@ export function HeaderDrawer() {
   const [isOpen, actions] = useHeaderDrawer();
 
   return (
-    <Drawer autoFocus direction="left" open={isOpen} onOpenChange={actions.toggle}>
+    <Drawer autoFocus direction="left" onOpenChange={actions.toggle} open={isOpen}>
       <DrawerTrigger asChild>
         <Button
-          variant="ghost"
           aria-label="menu"
           className="rounded-full focus-visible:ring-cyan-600"
           size="icon"
+          variant="ghost"
         >
           <HamburgerMenuIcon className="h-4 w-4" />
         </Button>

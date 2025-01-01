@@ -9,8 +9,8 @@ export const DrawerTitle = forwardRef<
   ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Title
-    ref={ref}
     className={cn('text-lg font-semibold leading-none tracking-tight', className)}
+    ref={ref}
     {...props}
   />
 ));

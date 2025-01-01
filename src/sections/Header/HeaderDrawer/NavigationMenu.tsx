@@ -23,8 +23,8 @@ export function NavigationMenu({ onNavigationSelect }: NavigationMenuProps) {
                   variant: 'ghost',
                 }),
               )}
-              to={path}
               onClick={onNavigationSelect}
+              to={path}
             >
               {Icon ? <Icon /> : <Link1Icon />}
               <span>{title}</span>

@@ -48,6 +48,7 @@ export default tseslint.config(
       ],
       '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
       '@typescript-eslint/no-unused-vars': 'off',
+      'react/jsx-sort-props': 'warn',
       'react/react-in-jsx-scope': 'off',
       'simple-import-sort/imports': 'error',
       'simple-import-sort/exports': 'error',

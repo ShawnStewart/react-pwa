@@ -18,8 +18,8 @@ export function GitHubLink() {
               variant: 'ghost',
             }),
           )}
-          to={repository}
           target="_blank"
+          to={repository}
         >
           <GitHubLogoIcon />
         </Link>

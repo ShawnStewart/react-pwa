@@ -14,7 +14,6 @@ export function Meta({
 
   return (
     <Helmet
-      title={pageTitle}
       meta={[
         {
           content: description,
@@ -49,6 +48,7 @@ export function Meta({
           name: 'twitter:description',
         },
       ].concat(meta)}
+      title={pageTitle}
     />
   );
 }

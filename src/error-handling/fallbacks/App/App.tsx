@@ -22,13 +22,13 @@ export function AppErrorBoundaryFallback() {
                 variant: 'outline',
               }),
             )}
-            target="_blank"
-            rel="noreferrer"
             href={`mailto:${email}`}
+            rel="noreferrer"
+            target="_blank"
           >
             <MailWarning /> {messages.app.crash.options.email}
           </a>
-          <Button variant="outline" onClick={resetApp}>
+          <Button onClick={resetApp} variant="outline">
             <RotateCcw /> {messages.app.crash.options.reset}
           </Button>
         </CardFooter>

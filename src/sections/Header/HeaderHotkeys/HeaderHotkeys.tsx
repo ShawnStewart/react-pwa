@@ -15,7 +15,7 @@ export function HeaderHotkeysDialog() {
   const [isOpen] = useHotKeysDialog();
 
   return (
-    <Dialog open={isOpen} onOpenChange={hotkeysConfig.HOTKEYS_MENU.action}>
+    <Dialog onOpenChange={hotkeysConfig.HOTKEYS_MENU.action} open={isOpen}>
       <Tooltip>
         <TooltipTrigger asChild>
           <DialogTrigger asChild>
@@ -41,11 +41,11 @@ export function HeaderHotkeysDialog() {
               <li className="flex items-center justify-between" key={key}>
                 <span>{description}</span>
                 <Button
-                  size="sm"
-                  variant="outline"
                   onClick={() => {
                     action();
                   }}
+                  size="sm"
+                  variant="outline"
                 >
                   {key}
                 </Button>
