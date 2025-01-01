@@ -37,7 +37,7 @@ export function Notifier() {
           ...options,
           title,
           Icon,
-          onExited(event, key) {
+          onExited(_event, key) {
             // removen this snackbar from the store
             actions.remove(key);
             removeDisplayed(key);

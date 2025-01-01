@@ -1,3 +1,5 @@
+import type { JSX } from 'react';
+
 import { FullSizeCenteredFlexBox } from '@/components/layout';
 import { Meta } from '@/components/Meta';
 import { useTheme } from '@/components/ui/theme';

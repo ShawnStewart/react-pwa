@@ -30,7 +30,9 @@ export function useHotkeysConfig() {
     },
   } as const;
 
-  useHotkeys(HOTKEYS_CONFIG.HEADER_DRAWER.key, () => HOTKEYS_CONFIG.HEADER_DRAWER.action());
+  useHotkeys(HOTKEYS_CONFIG.HEADER_DRAWER.key, () => {
+    HOTKEYS_CONFIG.HEADER_DRAWER.action();
+  });
   useHotkeys(HOTKEYS_CONFIG.THEME.key, HOTKEYS_CONFIG.THEME.action);
   useHotkeys(HOTKEYS_CONFIG.HOTKEYS_MENU.key, HOTKEYS_CONFIG.HOTKEYS_MENU.action);
 

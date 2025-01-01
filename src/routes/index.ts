@@ -14,11 +14,7 @@ import { Pages } from './types';
 export const routes: Routes = {
   [Pages.Welcome]: {
     component: asyncComponentLoader({
-      loadComponentAsync: async () => {
-        // await new Promise((res) => setTimeout(res, 1000000));
-        // if (Math.random() > 0.25) throw new Error('oops');
-        return import('@/pages/Welcome');
-      },
+      loadComponentAsync: () => import('@/pages/Welcome'),
     }),
     path: '/',
     title: 'Welcome',

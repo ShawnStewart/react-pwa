@@ -11,7 +11,7 @@ export interface LoaderOptions {
 export type ComponentTypeAny = ComponentType<any>;
 
 export type InferComponentProps<C extends ComponentTypeAny> = C extends ComponentType<void>
-  ? void
+  ? undefined
   : C extends ComponentType<infer P>
     ? P extends object
       ? P
@@ -34,7 +34,7 @@ export type LoadComponentAsyncConfig<
   P = InferComponentProps<C>,
 > = Required<LoaderDefaultOptions> & {
   loadComponentAsync: () => Promise<{ default: C }>;
-} & (P extends void
+} & (P extends undefined
     ? { loadComponentProps?: never }
     : P extends never
       ? { loadComponentProps?: never }

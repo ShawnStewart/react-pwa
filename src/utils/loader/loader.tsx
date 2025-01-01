@@ -3,7 +3,7 @@ import { lazy, Suspense, useEffect, useState } from 'react';
 
 import { sleep } from '@/utils/sleep';
 
-import type { ComponentTypeAny, InferComponentProps, LoadComponentAsyncConfig } from './types';
+import type { ComponentTypeAny, LoadComponentAsyncConfig } from './types';
 
 // a little bit complex staff is going on here
 // let me explain it
@@ -120,10 +120,10 @@ export function asyncComponentLoader<C extends ComponentTypeAny>(
 
   const LazyComponent = getLazyComponent(options) as ComponentTypeAny;
 
-  return function AsyncComponent(props: InferComponentProps<C>) {
+  return function AsyncComponent(props: object) {
     return (
       <Suspense fallback={<Fallback />}>
-        <LazyComponent {...loadComponentProps} {...(props ?? {})} />
+        <LazyComponent {...loadComponentProps} {...props} />
       </Suspense>
     );
   };

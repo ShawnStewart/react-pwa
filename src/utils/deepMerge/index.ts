@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import type { OneOrMore } from '../type-utils';
 
 type DeepMerge<T1, T2> = {
@@ -15,8 +14,8 @@ type DeepMerge<T1, T2> = {
       : never;
 };
 
-type DeepMergeAll<T extends any[]> = T extends [infer F, ...infer R]
-  ? R extends any[]
+type DeepMergeAll<T extends unknown[]> = T extends [infer F, ...infer R]
+  ? R extends unknown[]
     ? DeepMerge<F, DeepMergeAll<R>>
     : F
   : unknown;
@@ -27,33 +26,31 @@ type DeepMergeAll<T extends any[]> = T extends [infer F, ...infer R]
  * @param objects - The objects to merge.
  * @returns A new deeply merged object.
  */
-export function deepMerge<T extends OneOrMore<object>>(...objects: T) {
-  const isObject = (item: any): item is object => {
-    return item && typeof item === 'object' && !Array.isArray(item);
+export function deepMerge<T extends OneOrMore<unknown>>(...objects: T) {
+  const isObject = (item: unknown): item is object => {
+    if (!item) return false;
+    return typeof item === 'object' && !Array.isArray(item);
   };
 
-  return objects.reduce(
-    (acc, obj) => {
-      if (!obj) return acc;
+  return objects.reduce((acc, obj) => {
+    if (!obj) return acc;
 
-      Object.keys(obj).forEach((key) => {
-        const accValue = (acc as any)[key];
-        const objValue = (obj as any)[key];
+    Object.keys(obj).forEach((key) => {
+      const accValue = (acc as Record<string, unknown>)[key];
+      const objValue = (obj as Record<string, unknown>)[key];
 
-        if (Array.isArray(accValue) && Array.isArray(objValue)) {
-          // Concatenate arrays
-          (acc as any)[key] = accValue.concat(objValue);
-        } else if (isObject(accValue) && isObject(objValue)) {
-          // Recursively merge objects
-          (acc as any)[key] = deepMerge(accValue, objValue);
-        } else {
-          // Overwrite with new value
-          (acc as any)[key] = objValue;
-        }
-      });
+      if (Array.isArray(accValue) && Array.isArray(objValue)) {
+        // Concatenate arrays
+        (acc as Record<string, unknown>)[key] = accValue.concat(objValue);
+      } else if (isObject(accValue) && isObject(objValue)) {
+        // Recursively merge objects
+        (acc as Record<string, unknown>)[key] = deepMerge(accValue, objValue);
+      } else {
+        // Overwrite with new value
+        (acc as Record<string, unknown>)[key] = objValue;
+      }
+    });
 
-      return acc;
-    },
-    {} as T[0],
-  ) as DeepMergeAll<T>;
+    return acc;
+  }, {}) as DeepMergeAll<T>;
 }

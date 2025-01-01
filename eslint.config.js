@@ -17,8 +17,7 @@ export default tseslint.config(
       parserOptions: { projectService: true },
     },
   },
-  eslint.configs.recommended,
-  tseslint.configs.recommended,
+  tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
   reactPlugin.configs.flat.recommended,
   {
@@ -26,6 +25,13 @@ export default tseslint.config(
       'react-hooks': reactHooksPlugin,
       'unused-imports': unusedImportsPlugin,
       'simple-import-sort': simpleImportSortPlugin,
+    },
+  },
+  {
+    settings: {
+      react: {
+        version: 'detect',
+      },
     },
   },
   {
@@ -50,7 +56,7 @@ export default tseslint.config(
         {
           vars: 'all',
           varsIgnorePattern: '^_',
-          args: 'after-used',
+          args: 'all',
           argsIgnorePattern: '^_',
         },
       ],

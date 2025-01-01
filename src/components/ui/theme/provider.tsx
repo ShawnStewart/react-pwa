@@ -14,13 +14,7 @@ interface ThemeProviderState {
   setTheme: React.Dispatch<React.SetStateAction<Theme>>;
 }
 
-const initialState: ThemeProviderState = {
-  theme: 'system',
-  toggleTheme: () => null,
-  setTheme: () => null,
-};
-
-const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+const ThemeProviderContext = createContext<ThemeProviderState | null>(null);
 
 export function ThemeProvider({
   children,
@@ -29,7 +23,7 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme,
+    () => (localStorage.getItem(storageKey) ?? defaultTheme) as Theme,
   );
 
   useEffect(() => {
@@ -72,7 +66,7 @@ export function ThemeProvider({
 export const useTheme = () => {
   const context = useContext(ThemeProviderContext);
 
-  if (context === undefined) throw new Error('useTheme must be used within a ThemeProvider');
+  if (!context) throw new Error('useTheme must be used within a ThemeProvider');
 
   return context;
 };
