@@ -1,14 +1,14 @@
-import { FullSizeCenteredFlexBox } from '@/components/layout';
 import { Meta } from '@/components/Meta';
+import { PageContentWrapper } from '@/components/PageContentWrapper';
 import { Typography } from '@/components/ui/typography';
 
 export function Page3() {
   return (
-    <>
+    <PageContentWrapper className="flex items-center justify-center">
       <Meta title="page 3" />
-      <FullSizeCenteredFlexBox>
+      <section>
         <Typography variant="h3">Page 3</Typography>
-      </FullSizeCenteredFlexBox>
-    </>
+      </section>
+    </PageContentWrapper>
   );
 }
