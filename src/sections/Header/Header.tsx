@@ -1,4 +1,3 @@
-import { FlexBox } from '@/components/layout';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { title } from '@/config';
@@ -32,7 +31,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 mb-4 min-h-12 border-b bg-background/95 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/60 sm:min-h-16">
       <div className="container flex justify-between">
-        <FlexBox className="items-center gap-2">
+        <div className="flex items-center gap-2">
           <HeaderDrawer />
           <Button
             className="focus-visible:ring-cyan-600"
@@ -41,9 +40,9 @@ export function Header() {
           >
             {title}
           </Button>
-        </FlexBox>
+        </div>
 
-        <FlexBox className="items-center gap-2 py-3">
+        <div className="flex items-center gap-2 py-3">
           <HeaderHotkeysDialog />
           <Separator orientation="vertical" />
 
@@ -51,7 +50,7 @@ export function Header() {
           <Separator orientation="vertical" />
 
           <ThemeToggle />
-        </FlexBox>
+        </div>
       </div>
     </header>
   );

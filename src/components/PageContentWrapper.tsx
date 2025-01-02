@@ -1,13 +1,15 @@
-import type { ComponentProps } from 'react';
+import type { HTMLAttributes } from 'react';
 
 import { cn } from '@/lib/utils';
 
-import { Box } from './layout';
-
-export function PageContentWrapper({ children, className, ...props }: ComponentProps<typeof Box>) {
+export function PageContentWrapper({
+  children,
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) {
   return (
-    <Box className={cn('container flex-grow bg-background text-foreground', className)} {...props}>
+    <div className={cn('container flex-grow bg-background text-foreground', className)} {...props}>
       {children}
-    </Box>
+    </div>
   );
 }
