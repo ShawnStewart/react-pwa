@@ -11,7 +11,7 @@ const email = 'author@email.com';
 const repository = 'https://github.com/ShawnStewart/react-pwa';
 
 const messages = {
-  404: 'Hey bro? What are you looking for?',
+  404: 'Hey bro, what are you looking for?',
   app: {
     crash: {
       description: 'You can report the issue or restart the application.',

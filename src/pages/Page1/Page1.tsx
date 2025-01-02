@@ -7,7 +7,7 @@ export function Page1() {
     <PageContentWrapper className="flex items-center justify-center">
       <Meta title="page 1" />
       <section>
-        <Typography variant="h3">Page 1</Typography>
+        <Typography variant="heading">Page 1</Typography>
       </section>
     </PageContentWrapper>
   );

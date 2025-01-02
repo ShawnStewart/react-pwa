@@ -10,7 +10,7 @@ export function Page4() {
     <PageContentWrapper className="flex items-center justify-center">
       <Meta title="page 4" />
       <section className="flex-col">
-        <Typography className="text-center" variant="h3">
+        <Typography className="text-center" variant="heading">
           Page 4
         </Typography>
         <Link

@@ -19,7 +19,7 @@ export function NavigationMenu({ onNavigationSelect }: NavigationMenuProps) {
             <Link
               className={cn(
                 buttonVariants({
-                  className: 'w-full justify-start gap-4 pr-12',
+                  className: 'w-full justify-start gap-4 rounded-bl-none rounded-tl-none pr-12',
                   variant: 'ghost',
                 }),
               )}
