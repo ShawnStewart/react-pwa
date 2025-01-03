@@ -22,7 +22,7 @@ export const routes: Routes = {
   },
   [Pages.Page1]: {
     component: asyncComponentLoader({
-      loadComponentAsync: () => import('@/pages/Page1'),
+      loadComponentAsync: () => import('@/pages/BlankPage'),
     }),
     icon: GitHubLogoIcon,
     path: '/page-1',
@@ -30,7 +30,10 @@ export const routes: Routes = {
   },
   [Pages.Page2]: {
     component: asyncComponentLoader({
-      loadComponentAsync: () => import('@/pages/Page2'),
+      loadComponentAsync: () => import('@/pages/BlankPage'),
+      loadComponentProps: {
+        pageNumber: 2,
+      },
     }),
     icon: CheckCircledIcon,
     path: '/page-2',
@@ -38,7 +41,11 @@ export const routes: Routes = {
   },
   [Pages.Page3]: {
     component: asyncComponentLoader({
-      loadComponentAsync: () => import('@/pages/Page3'),
+      loadComponentAsync: () => import('@/pages/BlankPage'),
+      loadComponentProps: {
+        pageNumber: 3,
+        show404: true,
+      },
     }),
     icon: ImageIcon,
     path: '/page-3',
@@ -46,7 +53,11 @@ export const routes: Routes = {
   },
   [Pages.Page4]: {
     component: asyncComponentLoader({
-      loadComponentAsync: () => import('@/pages/Page4'),
+      loadComponentAsync: () => import('@/pages/BlankPage'),
+      loadComponentProps: {
+        pageNumber: 4,
+        show404: true,
+      },
     }),
     icon: ChatBubbleIcon,
     path: '/page-4',
