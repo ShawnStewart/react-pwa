@@ -4,11 +4,11 @@ import { atom, useRecoilState } from 'recoil';
 import type { Actions } from './types';
 
 const hotKeysDialogState = atom<boolean>({
-  key: 'hotkeys-dialog-state',
   default: false,
+  key: 'hotkeys-dialog-state',
 });
 
-function useHotKeysDialog(): [boolean, Actions] {
+export function useHotKeysDialog(): [boolean, Actions] {
   const [isOpen, setIsOpen] = useRecoilState(hotKeysDialogState);
 
   const toggle = useCallback(() => {
@@ -23,9 +23,7 @@ function useHotKeysDialog(): [boolean, Actions] {
     setIsOpen(true);
   }, [setIsOpen]);
 
-  const memoizedActions = useMemo(() => ({ toggle, close, open }), [toggle, close, open]);
+  const memoizedActions = useMemo(() => ({ close, open, toggle }), [toggle, close, open]);
 
   return [isOpen, memoizedActions];
 }
-
-export default useHotKeysDialog;

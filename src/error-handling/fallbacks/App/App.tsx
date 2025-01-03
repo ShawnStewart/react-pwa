@@ -1,40 +1,39 @@
-import EmailIcon from '@mui/icons-material/Email';
-import RestartIcon from '@mui/icons-material/RestartAlt';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
+import { MailWarning, RotateCcw } from 'lucide-react';
 
-import { FullSizeCenteredFlexBox } from '@/components/styled';
+import { PageContentWrapper } from '@/components/PageContentWrapper';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { email, messages } from '@/config';
-import resetApp from '@/utils/reset-app';
+import { cn } from '@/lib/utils';
+import { resetApp } from '@/utils/reset-app';
 
-function AppErrorBoundaryFallback() {
+export function AppErrorBoundaryFallback() {
   return (
-    <Box height={400}>
-      <FullSizeCenteredFlexBox>
-        <Paper sx={{ p: 5 }}>
-          <Typography variant="h5" component="h3">
-            {messages.app.crash.title}
-          </Typography>
-          <Button
-            startIcon={<EmailIcon />}
-            variant="outlined"
-            target="_blank"
+    <PageContentWrapper className="flex flex-col items-center justify-center">
+      <Card>
+        <CardHeader>
+          <CardTitle>{messages.app.crash.title}</CardTitle>
+          <CardDescription>{messages.app.crash.description}</CardDescription>
+        </CardHeader>
+        <CardFooter className="items-stretch justify-between gap-x-4">
+          <a
+            className={cn(
+              buttonVariants({
+                className: 'h-auto w-1/2 text-wrap',
+                variant: 'outline',
+              }),
+            )}
+            href={`mailto:${email}`}
             rel="noreferrer"
-            href={`mailto: ${email}`}
-            sx={{ my: 3 }}
+            target="_blank"
           >
-            {messages.app.crash.options.email}
+            <MailWarning /> {messages.app.crash.options.email}
+          </a>
+          <Button className="h-auto w-1/2 text-wrap" onClick={resetApp} variant="outline">
+            <RotateCcw /> {messages.app.crash.options.reset}
           </Button>
-          <Typography component="h6">or</Typography>
-          <Button startIcon={<RestartIcon />} sx={{ mt: 3 }} variant="outlined" onClick={resetApp}>
-            {messages.app.crash.options.reset}
-          </Button>
-        </Paper>
-      </FullSizeCenteredFlexBox>
-    </Box>
+        </CardFooter>
+      </Card>
+    </PageContentWrapper>
   );
 }
-
-export default AppErrorBoundaryFallback;

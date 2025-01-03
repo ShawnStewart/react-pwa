@@ -1,13 +1,13 @@
+import type { SnackbarKey } from 'notistack';
+import { useSnackbar } from 'notistack';
 import { useEffect, useRef } from 'react';
 
-import { SnackbarKey, useSnackbar } from 'notistack';
-
-import useNotifications from '@/store/notifications';
+import { useNotifications } from '@/store/notifications';
 
 // NOTE: this is a workaround for a missing feature in notistack
 // This will be removed once the new version of notistack is released
 // But it works great for now :)
-function Notifier() {
+export function Notifier() {
   const [notifications, actions] = useNotifications();
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const displayed = useRef<SnackbarKey[]>([]);
@@ -21,7 +21,7 @@ function Notifier() {
   }
 
   useEffect(() => {
-    notifications.forEach(({ message, options, dismissed }) => {
+    notifications.forEach(({ Icon, title, message, options, dismissed }) => {
       if (dismissed) {
         // dismiss snackbar using notistack
         closeSnackbar(options.key);
@@ -35,20 +35,20 @@ function Notifier() {
       if (message) {
         enqueueSnackbar(message, {
           ...options,
-          onExited(event, key) {
+          Icon,
+          onExited(_event, key) {
             // removen this snackbar from the store
             actions.remove(key);
             removeDisplayed(key);
           },
+          title,
         });
       }
 
       // keep track of snackbars that we've displayed
-      options.key && storeDisplayed(options.key);
+      if (options.key) storeDisplayed(options.key);
     });
   });
 
   return null;
 }
-
-export default Notifier;

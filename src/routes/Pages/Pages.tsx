@@ -1,20 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 
-import Box from '@mui/material/Box';
+import { routes } from '..';
 
-import routes from '..';
-import { getPageHeight } from './utils';
-
-function Pages() {
+export function Pages() {
   return (
-    <Box sx={{ height: (theme) => getPageHeight(theme) }}>
-      <Routes>
-        {Object.values(routes).map(({ path, component: Component }) => {
-          return <Route key={path} path={path} element={<Component />} />;
-        })}
-      </Routes>
-    </Box>
+    <Routes>
+      {Object.values(routes).map(({ path, component: Component }) => {
+        return <Route element={<Component />} key={path} path={path} />;
+      })}
+    </Routes>
   );
 }
-
-export default Pages;

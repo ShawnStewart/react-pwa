@@ -1,24 +1,35 @@
-import type { OptionsObject, SnackbarKey, SnackbarMessage } from 'notistack';
+import type { CustomContentProps, OptionsObject, SnackbarKey } from 'notistack';
+import type { FunctionComponent, ReactNode } from 'react';
 
 interface Notification {
-  message: SnackbarMessage;
+  Icon?: FunctionComponent;
+  title?: ReactNode;
+  message: ReactNode;
   options: OptionsObject;
   dismissed: boolean;
+}
+
+export interface CustomNotificationProps extends CustomContentProps {
+  Icon?: FunctionComponent;
+  title?: ReactNode;
+  message?: ReactNode;
 }
 
 declare module 'notistack' {
   export interface VariantOverrides {
     // define custom variants
     customNotification: {
-      message?: string;
+      Icon?: FunctionComponent;
+      title?: ReactNode;
+      message?: ReactNode;
     };
   }
 }
 
-type Actions = {
+interface Actions {
   push: (notification: Partial<Notification>) => SnackbarKey;
   close: (key: SnackbarKey, dismissAll?: boolean) => void;
   remove: (key: SnackbarKey) => void;
-};
+}
 
-export type { Notification, Actions };
+export type { Actions, Notification };

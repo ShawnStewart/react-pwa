@@ -1,8 +1,8 @@
 import type { OptionsObject } from 'notistack';
 
-type Notifications = {
+interface Notifications {
   options: OptionsObject;
   maxSnack: number;
-};
+}
 
 export type { Notifications };

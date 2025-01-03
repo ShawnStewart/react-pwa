@@ -1,5 +1,3 @@
-function resetApp() {
-  return window.location.reload();
+export function resetApp() {
+  window.location.reload();
 }
-
-export default resetApp;
