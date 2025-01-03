@@ -129,7 +129,7 @@ function TechCard({
             rel="noreferrer"
             target="_blank"
           >
-            Learn more about {learnMore.label ?? title}
+            {`Learn more about ${learnMore.label ?? title}`}
           </a>
         </Typography>
       </CardContent>
