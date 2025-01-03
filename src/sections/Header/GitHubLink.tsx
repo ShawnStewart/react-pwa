@@ -11,6 +11,7 @@ export function GitHubLink() {
     <Tooltip>
       <TooltipTrigger asChild>
         <Link
+          aria-label="GitHub repository"
           className={cn(
             buttonVariants({
               className: 'rounded-full focus-visible:ring-cyan-600 [&_svg]:size-6',

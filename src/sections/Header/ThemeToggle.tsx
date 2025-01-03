@@ -11,6 +11,7 @@ export function ThemeToggle() {
     <Tooltip>
       <TooltipTrigger asChild>
         <Button
+          aria-label="Theme toggle"
           className="rounded-full focus-visible:ring-cyan-600 [&_svg]:size-6"
           data-pw="theme-toggle"
           onClick={toggleTheme}

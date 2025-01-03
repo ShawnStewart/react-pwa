@@ -10,7 +10,7 @@ function TypographyP({
   ...props
 }: PropsWithChildren<HTMLAttributes<HTMLParagraphElement>>) {
   return (
-    <p className={cn('leading-7 [&:not(:first-child)]:mt-6', className)} {...props}>
+    <p className={cn('mt-6 leading-7 first-of-type:mt-0', className)} {...props}>
       {children}
     </p>
   );
@@ -53,10 +53,10 @@ function TypographyLead({
 }
 
 interface TypographyProps extends PropsWithChildren<HTMLAttributes<HTMLElement>> {
-  variant: 'heading' | 'p' | 'blockquote' | 'inline-code' | 'lead';
+  variant?: 'heading' | 'p' | 'blockquote' | 'inline-code' | 'lead';
 }
 
-export function Typography({ children, variant, ...props }: TypographyProps) {
+export function Typography({ children, variant = 'p', ...props }: TypographyProps) {
   switch (variant) {
     case 'heading': {
       return <Heading {...props}>{children}</Heading>;
