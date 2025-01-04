@@ -155,7 +155,6 @@ function toast({ ...props }: Toast) {
       ...props,
       id,
       onOpenChange: (open) => {
-        console.log('on open change', open);
         if (!open) dismiss();
       },
       open: true,
