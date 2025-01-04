@@ -1,11 +1,11 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 
 import { ToastAction } from '@/components/ui/toast';
 import { useToast } from '@/hooks/useToast';
 
 export function useServiceWorker() {
-  const { dismiss, toast } = useToast();
+  const { toast } = useToast();
   const refreshToastKey = useRef<string | null>(null);
   const {
     offlineReady: [offlineReady, setOfflineReady],
@@ -13,21 +13,17 @@ export function useServiceWorker() {
     updateServiceWorker,
   } = useRegisterSW();
 
-  const close = useCallback(() => {
-    setOfflineReady(false);
-    setNeedRefresh(false);
-
-    if (refreshToastKey.current) {
-      dismiss(refreshToastKey.current);
-    }
-  }, [setOfflineReady, setNeedRefresh, dismiss]);
-
   useEffect(() => {
     if (offlineReady) {
       toast({
         description: 'App is ready to work offline.',
       });
-    } else if (needRefresh) {
+      setOfflineReady(false);
+    }
+  }, [offlineReady, setOfflineReady, toast]);
+
+  useEffect(() => {
+    if (needRefresh) {
       const refreshToast = toast({
         action: (
           <ToastAction
@@ -41,6 +37,7 @@ export function useServiceWorker() {
         duration: 30000,
       });
       refreshToastKey.current = refreshToast.id;
+      setNeedRefresh(false);
     }
-  }, [close, needRefresh, offlineReady, toast, updateServiceWorker]);
+  }, [needRefresh, setNeedRefresh, toast, updateServiceWorker]);
 }
