@@ -21,7 +21,7 @@ export function HeaderHotkeysDialog() {
           <DialogTrigger asChild>
             <Button
               aria-label="Open hotkeys dialog"
-              className="bg-transparent focus-visible:ring-cyan-600"
+              className="bg-transparent"
               size="sm"
               variant="outline"
             >

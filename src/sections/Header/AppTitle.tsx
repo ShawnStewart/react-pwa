@@ -19,7 +19,7 @@ export function AppTitle() {
   }
 
   const button = (
-    <Button className="focus-visible:ring-cyan-600" onClick={showNotification} variant="ghost">
+    <Button onClick={showNotification} variant="ghost">
       {title}
     </Button>
   );

@@ -20,12 +20,7 @@ export function HeaderDrawer() {
   return (
     <Drawer autoFocus direction="left" onOpenChange={actions.toggle} open={isOpen}>
       <DrawerTrigger asChild>
-        <Button
-          aria-label="menu"
-          className="rounded-full focus-visible:ring-cyan-600"
-          size="icon"
-          variant="ghost"
-        >
+        <Button aria-label="menu" className="rounded-full" size="icon" variant="ghost">
           <HamburgerMenuIcon className="h-4 w-4" />
         </Button>
       </DrawerTrigger>

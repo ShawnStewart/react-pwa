@@ -14,7 +14,7 @@ export function GitHubLink() {
           aria-label="GitHub repository"
           className={cn(
             buttonVariants({
-              className: 'rounded-full focus-visible:ring-cyan-600 [&_svg]:size-6',
+              className: 'rounded-full [&_svg]:size-6',
               size: 'icon',
               variant: 'ghost',
             }),
