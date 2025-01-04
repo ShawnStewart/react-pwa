@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { title } from '@/config';
 import { useToast } from '@/hooks/useToast';
 
-import { getRandomJoke } from './utils';
+import { getRandomJoke2 } from './utils';
 
 export function AppTitle() {
   const { pathname } = useLocation();
@@ -15,10 +15,7 @@ export function AppTitle() {
   function showNotification() {
     if (!isHomePage) return;
 
-    toast({
-      description: getRandomJoke(),
-      title: 'Notification demo (random IT jokes)',
-    });
+    toast(getRandomJoke2());
   }
 
   const button = (

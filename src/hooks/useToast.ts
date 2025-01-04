@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import type { ToastActionElement, ToastProps } from '@/components/ui/toast';
 
-const TOAST_LIMIT = 1;
+const TOAST_LIMIT = 3;
 const TOAST_REMOVE_DELAY = 1_000_000;
 
 type ToasterToast = ToastProps & {
@@ -72,7 +72,6 @@ const addToRemoveQueue = (toastId: string) => {
 };
 
 export const reducer = (state: State, action: Action): State => {
-  console.log('reduce', action, state);
   switch (action.type) {
     case 'ADD_TOAST':
       return {
