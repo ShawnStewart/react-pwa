@@ -1,8 +1,5 @@
 import { Loading } from '@/components/Loading';
-import isMobile from '@/utils/is-mobile';
 import type { LoaderDefaultOptions } from '@/utils/loader/types';
-
-import type { Notifications } from './types';
 
 const title = 'React PWA';
 
@@ -32,17 +29,6 @@ const messages = {
 
 const dateFormat = 'MMMM DD, YYYY';
 
-const notifications: Notifications = {
-  maxSnack: isMobile ? 3 : 4,
-  options: {
-    anchorOrigin: {
-      horizontal: 'left',
-      vertical: 'bottom',
-    },
-    autoHideDuration: 6000,
-  },
-};
-
 const loaderDefaultOptions = {
   // no more blinking in your app
   FallbackComponent: Loading,
@@ -63,7 +49,6 @@ export {
   giphy404,
   loaderDefaultOptions,
   messages,
-  notifications,
   repository,
   title,
 };

@@ -1,14 +1,12 @@
-import type { SnackbarKey } from 'notistack';
 import { useCallback, useEffect, useRef } from 'react';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 
-import { Button } from '@/components/ui/button';
-import { useNotifications } from '@/store/notifications';
+import { ToastAction } from '@/components/ui/toast';
+import { useToast } from '@/hooks/useToast';
 
-// TODO (Suren): this should be a custom hook :)
 export function useServiceWorker() {
-  const [, notificationsActions] = useNotifications();
-  const notificationKey = useRef<SnackbarKey | null>(null);
+  const { dismiss, toast } = useToast();
+  const refreshToastKey = useRef<string | null>(null);
   const {
     offlineReady: [offlineReady, setOfflineReady],
     needRefresh: [needRefresh, setNeedRefresh],
@@ -19,36 +17,30 @@ export function useServiceWorker() {
     setOfflineReady(false);
     setNeedRefresh(false);
 
-    if (notificationKey.current) {
-      notificationsActions.close(notificationKey.current);
+    if (refreshToastKey.current) {
+      dismiss(refreshToastKey.current);
     }
-  }, [setOfflineReady, setNeedRefresh, notificationsActions]);
+  }, [setOfflineReady, setNeedRefresh, dismiss]);
 
   useEffect(() => {
     if (offlineReady) {
-      notificationsActions.push({
-        message: 'App is ready to work offline.',
-        options: {
-          autoHideDuration: 4500,
-          variant: 'success',
-        },
+      toast({
+        description: 'App is ready to work offline.',
       });
     } else if (needRefresh) {
-      notificationKey.current = notificationsActions.push({
-        message: 'New content is available, click on reload button to update.',
-        options: {
-          action: (
-            <>
-              <Button className="mr-2" onClick={() => updateServiceWorker(true)}>
-                Reload
-              </Button>
-              <Button onClick={close}>Close</Button>
-            </>
-          ),
-          persist: true,
-          variant: 'warning',
-        },
+      const refreshToast = toast({
+        action: (
+          <ToastAction
+            altText="Refresh the page to update the application."
+            onClick={() => updateServiceWorker(true)}
+          >
+            Refresh
+          </ToastAction>
+        ),
+        description: 'New content is available, refresh the page to update.',
+        duration: 30000,
       });
+      refreshToastKey.current = refreshToast.id;
     }
-  }, [close, needRefresh, notificationsActions, offlineReady, updateServiceWorker]);
+  }, [close, needRefresh, offlineReady, toast, updateServiceWorker]);
 }

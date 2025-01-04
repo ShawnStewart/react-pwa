@@ -2,24 +2,21 @@ import { Link, useLocation } from 'react-router-dom';
 
 import { Button } from '@/components/ui/button';
 import { title } from '@/config';
-import { useNotifications } from '@/store/notifications';
+import { useToast } from '@/hooks/useToast';
 
 import { getRandomJoke } from './utils';
 
 export function AppTitle() {
   const { pathname } = useLocation();
-  const [, notificationsActions] = useNotifications();
+  const { toast } = useToast();
 
   const isHomePage = pathname === '/';
 
   function showNotification() {
     if (!isHomePage) return;
 
-    notificationsActions.push({
-      message: getRandomJoke(),
-      options: {
-        variant: 'customNotification',
-      },
+    toast({
+      description: getRandomJoke(),
       title: 'Notification demo (random IT jokes)',
     });
   }
