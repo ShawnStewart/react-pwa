@@ -6,13 +6,14 @@ test.describe('test theme', () => {
     await page.waitForLoadState('networkidle');
   });
 
-  test('default theme is dark', async ({ page }) => {
-    await expect(page.getByTestId('theme-dark')).toBeVisible();
+  test('default theme is light', async ({ page }) => {
+    const htmlElement = page.locator('html');
+    await expect(htmlElement).toHaveClass('light');
   });
 
   test('clicking on the theme toggle changes the theme', async ({ page }) => {
-    await page.getByTestId('theme-toggle').click();
-
-    await expect(page.getByTestId('theme-light')).toBeVisible();
+    const htmlElement = page.locator('html');
+    await page.getByLabel('Theme toggle').click();
+    await expect(htmlElement).toHaveClass('dark');
   });
 });

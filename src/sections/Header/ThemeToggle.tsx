@@ -13,7 +13,6 @@ export function ThemeToggle() {
         <Button
           aria-label="Theme toggle"
           className="rounded-full [&_svg]:size-6"
-          data-pw="theme-toggle"
           onClick={toggleTheme}
           size="icon"
           variant="ghost"
