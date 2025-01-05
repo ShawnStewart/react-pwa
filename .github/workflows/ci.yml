@@ -1,10 +1,11 @@
-name: analyses
+name: ci
 
 on:
   push:
     branches: [main, master]
   pull_request:
     branches: [main, master]
+
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -14,7 +15,7 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version-file: '.node-version'
