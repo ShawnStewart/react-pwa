@@ -6,7 +6,7 @@ on:
     branches: [main, master]
 jobs:
   install:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Install pnpm
@@ -33,9 +33,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install Playwright Browsers
-        run: pnpm dlx playwright install --with-deps
+        run: npx playwright install --with-deps
       - name: Run Playwright tests
-        run: pnpm run test:e2e
+        run: npm run test:e2e
       - uses: actions/upload-artifact@v4
         if: always()
         with:
