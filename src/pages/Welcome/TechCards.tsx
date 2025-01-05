@@ -124,7 +124,7 @@ function TechCard({
 
         <Typography className="text-xs">
           <a
-            className="underline underline-offset-2"
+            className="mt-2 underline underline-offset-2"
             href={learnMore.url}
             rel="noreferrer"
             target="_blank"

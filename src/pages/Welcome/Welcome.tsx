@@ -11,7 +11,7 @@ export function Welcome() {
       <Typography variant="heading">Build a modern web application</Typography>
       <Typography>Get started quickly using this template.</Typography>
 
-      <section className="flex flex-wrap justify-center gap-4 py-4 sm:flex-row">
+      <section className="mt-4 flex flex-wrap justify-center gap-4 sm:flex-row">
         <HeadingLevel>
           <TechCards />
         </HeadingLevel>
