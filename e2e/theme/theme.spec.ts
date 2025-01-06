@@ -1,19 +1,11 @@
-import { expect, test } from '@playwright/test';
+import { test } from '@e2e/test-override';
 
-test.describe('test theme', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/');
-    await page.waitForLoadState('networkidle');
-  });
+test('default theme is light', async ({ basePage }) => {
+  await basePage.theme.expectThemeToBeLight();
+});
 
-  test('default theme is light', async ({ page }) => {
-    const htmlElement = page.locator('html');
-    await expect(htmlElement).toHaveClass('light');
-  });
-
-  test('clicking on the theme toggle changes the theme', async ({ page }) => {
-    const htmlElement = page.locator('html');
-    await page.getByLabel('Theme toggle').click();
-    await expect(htmlElement).toHaveClass('dark');
-  });
+test('clicking on the theme toggle changes the theme', async ({ basePage }) => {
+  await basePage.theme.expectThemeToBeLight();
+  await basePage.pageHeader.themeToggleButton.click();
+  await basePage.theme.expectThemeToBeDark();
 });

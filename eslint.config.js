@@ -49,6 +49,18 @@ export default tseslint.config(
       '@typescript-eslint/restrict-template-expressions': ['error', { allowNumber: true }],
       '@typescript-eslint/no-unused-vars': 'off',
       'no-console': ['warn', { allow: ['error'] }],
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: '@playwright/test',
+              importNames: ['test'],
+              message: "Import 'test' from '@e2e/test-override'",
+            },
+          ],
+        },
+      ],
       'react/jsx-sort-props': 'warn',
       'react/react-in-jsx-scope': 'off',
       'simple-import-sort/imports': 'error',

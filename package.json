@@ -18,11 +18,11 @@
     "dev": "vite",
     "https-preview": "serve dist",
     "prepare": "husky install && cp -n env/.shared .env &",
-    "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "prettier:check": "prettier --check \"{src,e2e}/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
+    "prettier:fix": "prettier --write \"{src,e2e}/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "preview": "vite preview",
-    "lint:check": "eslint \"src/**/*.{js,jsx,ts,tsx,json}\"",
-    "lint:fix": "eslint --fix --max-warnings=0 \"src/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint:check": "eslint \"{src,e2e}/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint:fix": "eslint --fix --max-warnings=0 \"{src,e2e}/**/*.{js,jsx,ts,tsx,json}\"",
     "test:e2e": "npx playwright test",
     "test:e2e:ui": "npx playwright test --ui",
     "test:unit": "vitest",
@@ -82,10 +82,10 @@
     "workbox-window": "^7.3.0"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+    "{src,e2e}/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
     ],
-    "src/**/*.{js,jsx,ts,tsx,json}": [
+    "{src,e2e}/**/*.{js,jsx,ts,tsx,json}": [
       "eslint --max-warnings=0"
     ]
   },
