@@ -9,7 +9,7 @@ export function PageContentWrapper({
 }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn('container flex-grow bg-background pt-4 text-foreground', className)}
+      className={cn('container flex-grow bg-background py-4 text-foreground', className)}
       {...props}
     >
       {children}

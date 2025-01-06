@@ -104,7 +104,7 @@ function TechCard({
   return (
     <Card
       className={cn(
-        'relative z-10 flex max-w-[90%] flex-1 basis-1/2 flex-col overflow-hidden bg-transparent bg-gradient-to-br transition-all hover:z-10 hover:scale-110 sm:max-w-56',
+        'flex h-full flex-col overflow-hidden bg-gradient-to-br transition-all hover:scale-110',
         isDarkMode
           ? 'from-red-500 via-orange-500 to-yellow-500'
           : 'from-cyan-400 via-blue-400 to-indigo-400',
@@ -138,5 +138,13 @@ function TechCard({
 }
 
 export function TechCards() {
-  return techCards.map((props) => <TechCard key={props.title} {...props} />);
+  return (
+    <ul className="mt-4 flex flex-wrap justify-center gap-4 sm:flex-row">
+      {techCards.map(({ title, ...props }) => (
+        <li className="max-w-[90%] flex-1 basis-1/2 sm:max-w-56" key={title}>
+          <TechCard key={title} title={title} {...props} />
+        </li>
+      ))}
+    </ul>
+  );
 }

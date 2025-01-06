@@ -8,11 +8,16 @@ export function Welcome() {
   return (
     <PageContentWrapper className="flex flex-col justify-center text-center">
       <Meta title="Welcome" />
-      <Typography variant="heading">Build a modern web application</Typography>
+      <Typography className="mt-8" variant="heading">
+        Build a modern web application
+      </Typography>
       <Typography>Get started quickly using this template.</Typography>
 
-      <section className="mt-4 flex flex-wrap justify-center gap-4 sm:flex-row">
+      <section>
         <HeadingLevel>
+          <Typography className="mt-8" variant="heading">
+            Technologies used
+          </Typography>
           <TechCards />
         </HeadingLevel>
       </section>
