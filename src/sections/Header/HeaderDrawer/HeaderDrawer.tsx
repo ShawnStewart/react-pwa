@@ -10,15 +10,15 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
-import { useHeaderDrawer } from '@/store/headerDrawer';
 
+import { useHeaderDrawer } from './HeaderDrawerContext';
 import { NavigationMenu } from './NavigationMenu';
 
 export function HeaderDrawer() {
-  const [isOpen, actions] = useHeaderDrawer();
+  const { close, isOpen, toggle } = useHeaderDrawer();
 
   return (
-    <Drawer autoFocus direction="left" onOpenChange={actions.toggle} open={isOpen}>
+    <Drawer autoFocus direction="left" onOpenChange={toggle} open={isOpen}>
       <DrawerTrigger asChild>
         <Button aria-label="Navigation menu" className="rounded-full" size="icon" variant="ghost">
           <HamburgerMenuIcon className="h-4 w-4" />
@@ -31,14 +31,14 @@ export function HeaderDrawer() {
           aria-describedby={undefined}
           className="text-foreground"
           direction="left"
-          onEscapeKeyDown={actions.close}
-          onPointerDownOutside={actions.close}
+          onEscapeKeyDown={close}
+          onPointerDownOutside={close}
         >
           <VisuallyHidden asChild>
             <DrawerTitle>Navigation menu</DrawerTitle>
           </VisuallyHidden>
 
-          <NavigationMenu onNavigationSelect={actions.close} />
+          <NavigationMenu onNavigationSelect={close} />
         </DrawerContent>
       </DrawerPortal>
     </Drawer>

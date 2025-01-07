@@ -1,19 +1,20 @@
 import { useHotkeys } from 'react-hotkeys-hook';
 
 import { useTheme } from '@/components/ui/theme';
-import { useHeaderDrawer } from '@/store/headerDrawer';
 import { useHotKeysDialog } from '@/store/hotkeys';
+
+import { useHeaderDrawer } from '../HeaderDrawer/HeaderDrawerContext';
 
 export function useHotkeysConfig() {
   const { toggleTheme } = useTheme();
-  const [, headerDrawerActions] = useHeaderDrawer();
+  const { toggle: toggleHeaderDrawer } = useHeaderDrawer();
   const [, hotKeysDialogActions] = useHotKeysDialog();
 
   const HOTKEYS_CONFIG = {
     HEADER_DRAWER: {
       action: () => {
         hotKeysDialogActions.close();
-        headerDrawerActions.toggle();
+        toggleHeaderDrawer();
       },
       description: 'Toggle navigation menu',
       key: 'alt+s',
