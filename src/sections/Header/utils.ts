@@ -1,10 +1,14 @@
-import jokes from '@/config/it-jokes';
+import { jokeEmojis, jokes } from '@/config/jokes';
 
-function getRandomJoke() {
-  const randomIndex = Math.round(Math.random() * (jokes.length - 1));
-  const randomJoke = jokes[randomIndex];
+let jokeIteration = 0;
 
-  return randomJoke;
+export function getRandomJoke2() {
+  const randomJoke = jokes[jokeIteration % jokes.length];
+  const randomEmoji = jokeEmojis[jokeIteration % jokeEmojis.length];
+  jokeIteration++;
+
+  return {
+    ...randomJoke,
+    description: `${randomJoke.description} ${randomEmoji} `,
+  };
 }
-
-export { getRandomJoke };

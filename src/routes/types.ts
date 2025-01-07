@@ -1,9 +1,9 @@
-import { FC } from 'react';
-import { PathRouteProps } from 'react-router-dom';
+import type { IconProps } from '@radix-ui/react-icons/dist/types';
+import type { PathRouteProps } from 'react-router-dom';
 
-import type { SvgIconProps } from '@mui/material/SvgIcon';
+import type { ComponentTypeAny } from '@/utils/loader/types';
 
-enum Pages {
+export enum Pages {
   Welcome,
   Page1,
   Page2,
@@ -12,13 +12,11 @@ enum Pages {
   NotFound,
 }
 
-type PathRouteCustomProps = {
+interface PathRouteCustomProps {
   title?: string;
-  component: FC;
-  icon?: FC<SvgIconProps>;
-};
+  component: ComponentTypeAny;
+  icon?: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>;
+  path: string;
+}
 
-type Routes = Record<Pages, PathRouteProps & PathRouteCustomProps>;
-
-export type { Routes };
-export { Pages };
+export type Routes = Record<Pages, PathRouteProps & PathRouteCustomProps>;

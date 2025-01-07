@@ -1,13 +1,13 @@
-import CircularProgress from '@mui/material/CircularProgress';
+import { LoaderCircle } from 'lucide-react';
 
-import { FullSizeCenteredFlexBox } from '@/components/styled';
+import { cn } from '@/lib/utils';
 
-function Loading() {
+import { PageContentWrapper } from '../PageContentWrapper';
+
+export function Loading({ className }: { className?: string }) {
   return (
-    <FullSizeCenteredFlexBox>
-      <CircularProgress />
-    </FullSizeCenteredFlexBox>
+    <PageContentWrapper className="flex items-center justify-center">
+      <LoaderCircle className={cn('h-10 w-10 animate-spin', className)} />
+    </PageContentWrapper>
   );
 }
-
-export default Loading;

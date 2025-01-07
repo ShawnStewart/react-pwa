@@ -1,100 +1,33 @@
-import GitHubIcon from '@mui/icons-material/GitHub';
-import ThemeIcon from '@mui/icons-material/InvertColors';
-import MenuIcon from '@mui/icons-material/Menu';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
-import Toolbar from '@mui/material/Toolbar';
-import Tooltip from '@mui/material/Tooltip';
+import { Separator } from '@/components/ui/separator';
 
-import { FlexBox } from '@/components/styled';
-import { repository, title } from '@/config';
-import useHotKeysDialog from '@/store/hotkeys';
-import useNotifications from '@/store/notifications';
-import useSidebar from '@/store/sidebar';
-import useTheme from '@/store/theme';
+import { AppTitle } from './AppTitle';
+import { GitHubLink } from './GitHubLink';
+import { HeaderDrawer, HeaderDrawerContext } from './HeaderDrawer';
+import { HeaderHotkeys } from './HeaderHotkeys';
+import { ThemeToggle } from './ThemeToggle';
 
-import { HotKeysButton } from './styled';
-import { getRandomJoke } from './utils';
-
-function Header() {
-  const [, sidebarActions] = useSidebar();
-  const [theme, themeActions] = useTheme();
-  const [, notificationsActions] = useNotifications();
-  const [, hotKeysDialogActions] = useHotKeysDialog();
-
-  function showNotification() {
-    notificationsActions.push({
-      options: {
-        // Show fully customized notification
-        // Usually, to show a notification, you'll use something like this:
-        // notificationsActions.push({ message: ... })
-        // `message` accepts string as well as ReactNode
-        // If you want to show a fully customized notification, you can define
-        // your own `variant`s, see @/sections/Notifications/Notifications.tsx
-        variant: 'customNotification',
-      },
-      message: getRandomJoke(),
-    });
-  }
-
+export function Header() {
   return (
-    <Box sx={{ flexGrow: 1 }} data-pw={`theme-${theme}`}>
-      <AppBar color="transparent" elevation={1} position="static">
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <FlexBox sx={{ alignItems: 'center' }}>
-            <IconButton
-              onClick={sidebarActions.toggle}
-              size="large"
-              edge="start"
-              color="info"
-              aria-label="menu"
-              sx={{ mr: 1 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Button onClick={showNotification} color="info">
-              {title}
-            </Button>
-          </FlexBox>
-          <FlexBox>
-            <FlexBox>
-              <Tooltip title="Hot keys" arrow>
-                <HotKeysButton
-                  size="small"
-                  variant="outlined"
-                  aria-label="open hotkeys dialog"
-                  onClick={hotKeysDialogActions.open}
-                >
-                  alt + k
-                </HotKeysButton>
-              </Tooltip>
-            </FlexBox>
-            <Divider orientation="vertical" flexItem />
-            <Tooltip title="It's open source" arrow>
-              <IconButton color="info" size="large" component="a" href={repository} target="_blank">
-                <GitHubIcon />
-              </IconButton>
-            </Tooltip>
-            <Divider orientation="vertical" flexItem />
-            <Tooltip title="Switch theme" arrow>
-              <IconButton
-                color="info"
-                edge="end"
-                size="large"
-                onClick={themeActions.toggle}
-                data-pw="theme-toggle"
-              >
-                <ThemeIcon />
-              </IconButton>
-            </Tooltip>
-          </FlexBox>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    <header className="sticky top-0 z-50 min-h-12 border-b bg-background/95 text-foreground backdrop-blur supports-[backdrop-filter]:bg-background/60 sm:min-h-16">
+      <div className="container flex justify-between">
+        <HeaderDrawerContext>
+          <div className="flex items-center gap-2">
+            <HeaderDrawer />
+
+            <AppTitle />
+          </div>
+
+          <div className="flex items-center gap-2 py-3">
+            <HeaderHotkeys />
+            <Separator orientation="vertical" />
+
+            <GitHubLink />
+            <Separator orientation="vertical" />
+
+            <ThemeToggle />
+          </div>
+        </HeaderDrawerContext>
+      </div>
+    </header>
   );
 }
-
-export default Header;

@@ -1,25 +1,24 @@
-import { ComponentType, StrictMode } from 'react';
+import type { ComponentType } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
-import { RecoilRoot } from 'recoil';
 
-import ThemeProvider from '@/theme/Provider';
+import { ThemeProvider } from '@/components/ui/theme';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
-const container = document.getElementById('root') as HTMLElement;
-const root = createRoot(container);
+const container = document.getElementById('root');
+const root = container && createRoot(container);
 
-function render(App: ComponentType) {
-  root.render(
+export default function render(App: ComponentType) {
+  root?.render(
     <StrictMode>
-      <RecoilRoot>
-        <HelmetProvider>
-          <ThemeProvider>
+      <HelmetProvider>
+        <ThemeProvider>
+          <TooltipProvider>
             <App />
-          </ThemeProvider>
-        </HelmetProvider>
-      </RecoilRoot>
+          </TooltipProvider>
+        </ThemeProvider>
+      </HelmetProvider>
     </StrictMode>,
   );
 }
-
-export default render;

@@ -18,13 +18,14 @@ export default defineConfig({
         enabled: false,
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html}', '**/*.{svg,png,jpg,gif}'],
+        globPatterns: ['**/*.{js,wasm,css,html,svg,png,jpg,gif}'],
       },
     }),
   ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+      '@e2e': path.resolve(__dirname, './e2e'),
     },
   },
   test: {

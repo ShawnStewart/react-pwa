@@ -13,7 +13,7 @@ function getRandomColor() {
   return [`rgb(${r}, ${g}, ${b})`, `rgb(${255 - r}, ${255 - g}, ${255 - b})`];
 }
 
-function welcome() {
+export function logWelcomeMessage() {
   const [color, invertedColor] = getRandomColor();
 
   const styles = [
@@ -25,7 +25,6 @@ function welcome() {
     'padding: 10px',
   ].join(';');
 
+  // eslint-disable-next-line no-console
   console.log(`%c=== ${title} ===`, styles);
 }
-
-export default welcome;

@@ -18,9 +18,10 @@
     "baseUrl": "./",
     "types": ["vite-plugin-pwa/client"],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@e2e/*": ["e2e/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "e2e", "playwright.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

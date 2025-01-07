@@ -1,10 +1,10 @@
 import { Helmet } from 'react-helmet-async';
 
-import { title as appTitle, defaultMetaTags } from '@/config';
+import { defaultMetaTags, title as appTitle } from '@/config';
 
 import type { MetaProps } from './types';
 
-function Meta({
+export function Meta({
   description = defaultMetaTags.description,
   meta = [],
   title,
@@ -14,43 +14,41 @@ function Meta({
 
   return (
     <Helmet
-      title={pageTitle}
       meta={[
         {
+          content: description,
           name: 'description',
-          content: description,
         },
         {
+          content: pageTitle,
           property: 'og:title',
-          content: pageTitle,
         },
         {
+          content: description,
           property: 'og:description',
-          content: description,
         },
         {
-          property: 'og:type',
           content: 'website',
+          property: 'og:type',
         },
         {
-          property: 'og:image',
           content: image,
+          property: 'og:image',
         },
         {
-          name: 'twitter:card',
           content: 'summary',
+          name: 'twitter:card',
         },
         {
-          name: 'twitter:title',
           content: pageTitle,
+          name: 'twitter:title',
         },
         {
-          name: 'twitter:description',
           content: description,
+          name: 'twitter:description',
         },
       ].concat(meta)}
+      title={pageTitle}
     />
   );
 }
-
-export default Meta;
