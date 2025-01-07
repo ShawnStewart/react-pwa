@@ -1,26 +1,29 @@
 import { useHotkeys } from 'react-hotkeys-hook';
 
 import { useTheme } from '@/components/ui/theme';
-import { useHotKeysDialog } from '@/store/hotkeys';
 
 import { useHeaderDrawer } from '../HeaderDrawer/HeaderDrawerContext';
+import { useHeaderHotkeys } from './HeaderHotkeysContext';
 
 export function useHotkeysConfig() {
   const { toggleTheme } = useTheme();
-  const { toggle: toggleHeaderDrawer } = useHeaderDrawer();
-  const [, hotKeysDialogActions] = useHotKeysDialog();
+  const { toggle: toggleHeaderDrawer, close: closeHeaderDrawer } = useHeaderDrawer();
+  const { toggle: toggleHeaderHotkeys, close: closeHeaderHotkeys } = useHeaderHotkeys();
 
   const HOTKEYS_CONFIG = {
     HEADER_DRAWER: {
       action: () => {
-        hotKeysDialogActions.close();
+        closeHeaderHotkeys();
         toggleHeaderDrawer();
       },
       description: 'Toggle navigation menu',
       key: 'alt+s',
     },
     HOTKEYS_MENU: {
-      action: hotKeysDialogActions.toggle,
+      action: () => {
+        closeHeaderDrawer();
+        toggleHeaderHotkeys();
+      },
       description: 'Toggle hotkeys menu',
       key: 'alt+k',
     },
@@ -39,5 +42,3 @@ export function useHotkeysConfig() {
 
   return HOTKEYS_CONFIG;
 }
-
-export { useHotKeysDialog };

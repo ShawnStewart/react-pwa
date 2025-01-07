@@ -8,11 +8,12 @@ import {
 } from '@/components/ui/dialog';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
-import { useHotkeysConfig, useHotKeysDialog } from './useHotkeysConfig';
+import { useHeaderHotkeys } from './HeaderHotkeysContext';
+import { useHotkeysConfig } from './useHotkeysConfig';
 
 export function HeaderHotkeysDialog() {
   const hotkeysConfig = useHotkeysConfig();
-  const [isOpen] = useHotKeysDialog();
+  const { isOpen } = useHeaderHotkeys();
 
   return (
     <Dialog onOpenChange={hotkeysConfig.HOTKEYS_MENU.action} open={isOpen}>

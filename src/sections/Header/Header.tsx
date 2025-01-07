@@ -2,9 +2,8 @@ import { Separator } from '@/components/ui/separator';
 
 import { AppTitle } from './AppTitle';
 import { GitHubLink } from './GitHubLink';
-import { HeaderDrawer } from './HeaderDrawer/HeaderDrawer';
-import { HeaderDrawerContext } from './HeaderDrawer/HeaderDrawerContext';
-import { HeaderHotkeysDialog } from './HeaderHotkeys/HeaderHotkeys';
+import { HeaderDrawer, HeaderDrawerContext } from './HeaderDrawer';
+import { HeaderHotkeys } from './HeaderHotkeys';
 import { ThemeToggle } from './ThemeToggle';
 
 export function Header() {
@@ -19,7 +18,7 @@ export function Header() {
           </div>
 
           <div className="flex items-center gap-2 py-3">
-            <HeaderHotkeysDialog />
+            <HeaderHotkeys />
             <Separator orientation="vertical" />
 
             <GitHubLink />

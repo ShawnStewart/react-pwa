@@ -4,9 +4,9 @@ import { createContext, useContext, useMemo } from 'react';
 import type { DialogActions } from '@/hooks/useDialogActions';
 import { useDialogActions } from '@/hooks/useDialogActions';
 
-const headerDrawerContext = createContext<DialogActions | null>(null);
+const headerHotkeysContext = createContext<DialogActions | null>(null);
 
-export function HeaderDrawerContext({ children }: PropsWithChildren) {
+export function HeaderHotkeysContext({ children }: PropsWithChildren) {
   const { close, isOpen, open, toggle } = useDialogActions();
 
   const memoizedActions = useMemo(
@@ -15,14 +15,16 @@ export function HeaderDrawerContext({ children }: PropsWithChildren) {
   );
 
   return (
-    <headerDrawerContext.Provider value={memoizedActions}>{children}</headerDrawerContext.Provider>
+    <headerHotkeysContext.Provider value={memoizedActions}>
+      {children}
+    </headerHotkeysContext.Provider>
   );
 }
 
-export function useHeaderDrawer() {
-  const context = useContext(headerDrawerContext);
+export function useHeaderHotkeys() {
+  const context = useContext(headerHotkeysContext);
 
-  if (!context) throw new Error('useHeaderDrawer must be used within a HeaderDrawerContext');
+  if (!context) throw new Error('useHeaderHotkeys must be used within a HeaderHotkeysContext');
 
   return context;
 }
