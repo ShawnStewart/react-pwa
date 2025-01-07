@@ -9,7 +9,6 @@ import { cn } from '@/lib/utils';
 import pwaLogo from './logos/pwa.svg';
 import reactLogo from './logos/react.svg';
 import reactRouterLogo from './logos/react-router.svg';
-import recoilLogo from './logos/recoil.svg';
 import shadcnLogo from './logos/shadcn.svg';
 import tsLogo from './logos/ts.svg';
 import viteLogo from './logos/vite.svg';
@@ -65,13 +64,6 @@ const techCards: TechCardProps[] = [
     learnMore: { url: 'https://ui.shadcn.com/docs' },
     src: shadcnLogo,
     title: 'shadcn/ui',
-  },
-  {
-    dependencyKey: 'recoil',
-    description: 'A state management library for React.',
-    learnMore: { url: 'https://recoiljs.org' },
-    src: recoilLogo,
-    title: 'Recoil.js',
   },
 ] as const;
 

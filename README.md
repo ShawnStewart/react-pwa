@@ -32,8 +32,6 @@ Almost all projects need to have a router, a UI framework, store integration, th
 
 - ✅ [Router](#router)
   - `React Router v6`
-- ✅ [Store](#store)
-  - `Recoil`
 - ✅ [Notifications](#notifications)
 - ✅ [Theme](#theme)
 - ✅ [Base file/folder structure](#base-filefolder-structure)
@@ -77,10 +75,6 @@ For those who are not familiar with `TypeScript` - don't worry, you will love it
 #### UI Components
 
 [Shadcn/ui](https://ui.shadcn.com/) basic, accessible, customizable component building blocks.
-
-#### Store
-
-As a store management tool [Recoil](https://recoiljs.org/) is used. Check the [src/store](./src/store) folder for more information.
 
 #### Notifications
 

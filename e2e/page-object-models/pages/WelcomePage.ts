@@ -18,7 +18,6 @@ class TechnologiesSectionObject extends PageObject {
       this.getTechCard(page.getByRole('heading', { name: 'Progressive Web App' })),
       this.getTechCard(page.getByRole('heading', { name: 'TypeScript' })),
       this.getTechCard(page.getByRole('heading', { name: 'shadcn/ui' })),
-      this.getTechCard(page.getByRole('heading', { name: 'Recoil.js' })),
     );
   }
 
