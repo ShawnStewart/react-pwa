@@ -29,25 +29,18 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement;
 
-    root.classList.remove('light', 'dark');
-
-    if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-        ? 'dark'
-        : 'light';
-
-      root.classList.add(systemTheme);
-      return;
-    }
-
-    root.classList.add(theme);
+    const isDarkTheme = theme === 'dark';
+    const isSystemTheme = theme === 'system';
+    const isSystemDarkTheme =
+      isSystemTheme && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    root.classList.toggle('dark', isDarkTheme || isSystemDarkTheme);
     localStorage.setItem(storageKey, theme);
   }, [storageKey, theme]);
 
   const toggleTheme = useCallback(() => {
     const root = window.document.documentElement;
-    const isLight = root.classList.contains('light');
-    setTheme(isLight ? 'dark' : 'light');
+    const isDark = root.classList.contains('dark');
+    setTheme(isDark ? 'light' : 'dark');
   }, []);
 
   const value: ThemeProviderState = {

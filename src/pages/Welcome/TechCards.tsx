@@ -2,7 +2,6 @@ import type { JSX } from 'react';
 
 import packageJson from '@/../package.json';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
-import { useTheme } from '@/components/ui/theme';
 import { Typography } from '@/components/ui/typography';
 import { cn } from '@/lib/utils';
 
@@ -87,9 +86,6 @@ function TechCard({
   learnMore,
   ...props
 }: TechCardProps) {
-  const { theme } = useTheme();
-  const isDarkMode = theme === 'dark';
-
   const version = getPackageVersion(dependencyKey);
   const dependencyKeyAndVersion = version ? `${dependencyKey}@${version}` : '-';
 
@@ -97,9 +93,7 @@ function TechCard({
     <Card
       className={cn(
         'flex h-full flex-col overflow-hidden bg-gradient-to-br transition-all hover:scale-110',
-        isDarkMode
-          ? 'from-red-500 via-orange-500 to-yellow-500'
-          : 'from-cyan-400 via-blue-400 to-indigo-400',
+        'from-cyan-400 via-blue-400 to-indigo-400 dark:from-red-500 dark:via-orange-500 dark:to-yellow-500',
       )}
     >
       <CardHeader className="items-center p-4 pt-6 text-center">

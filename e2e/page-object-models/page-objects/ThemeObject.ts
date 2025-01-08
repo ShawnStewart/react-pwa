@@ -13,6 +13,6 @@ export class ThemeObject extends PageObject {
   }
 
   async expectThemeToBeLight() {
-    await expect(this.host).toHaveClass('light');
+    await expect(this.host).not.toHaveClass('dark');
   }
 }
