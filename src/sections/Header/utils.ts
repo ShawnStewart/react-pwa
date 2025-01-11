@@ -2,7 +2,7 @@ import { jokeEmojis, jokes } from '@/config/jokes';
 
 let jokeIteration = 0;
 
-export function getRandomJoke2() {
+export function getRandomJoke() {
   const randomJoke = jokes[jokeIteration % jokes.length];
   const randomEmoji = jokeEmojis[jokeIteration % jokeEmojis.length];
   jokeIteration++;

@@ -9,7 +9,6 @@ interface ThemeProviderProps {
 }
 
 interface ThemeProviderState {
-  theme: Theme;
   toggleTheme: () => void;
   setTheme: React.Dispatch<React.SetStateAction<Theme>>;
 }
@@ -45,7 +44,6 @@ export function ThemeProvider({
 
   const value: ThemeProviderState = {
     setTheme,
-    theme,
     toggleTheme,
   };
 

@@ -127,7 +127,7 @@ export function TechCards() {
   return (
     <ul className="mt-4 flex flex-wrap justify-center gap-4 sm:flex-row">
       {techCards.map(({ title, ...props }) => (
-        <li className="max-w-[90%] flex-1 basis-1/2 sm:max-w-56" key={title}>
+        <li className="max-w-[90%] flex-1 basis-1/2 sm:max-w-60" key={title}>
           <TechCard key={title} title={title} {...props} />
         </li>
       ))}
