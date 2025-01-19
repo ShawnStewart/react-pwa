@@ -1,4 +1,4 @@
-import { MailWarning, RotateCcw } from 'lucide-react';
+import { LuMailWarning, LuRotateCcw } from 'react-icons/lu';
 
 import { PageContentWrapper } from '@/components/PageContentWrapper';
 import { Button, buttonVariants } from '@/components/ui/button';
@@ -27,10 +27,10 @@ export function AppErrorBoundaryFallback() {
             rel="noreferrer"
             target="_blank"
           >
-            <MailWarning /> {messages.app.crash.options.email}
+            <LuMailWarning /> {messages.app.crash.options.email}
           </a>
           <Button className="h-auto w-1/2 text-wrap" onClick={resetApp} variant="outline">
-            <RotateCcw /> {messages.app.crash.options.reset}
+            <LuRotateCcw /> {messages.app.crash.options.reset}
           </Button>
         </CardFooter>
       </Card>

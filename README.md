@@ -1,4 +1,4 @@
-[![ci](https://github.com/ShawnStewart/react-pwa/actions/workflows/ci.yaml/badge.svg)](https://github.com/ShawnStewart/react-pwa/actions/workflows/ci.yaml)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/ShawnStewart/react-pwa/blob/main/LICENSE) [![ci](https://github.com/ShawnStewart/react-pwa/actions/workflows/ci.yaml/badge.svg)](https://github.com/ShawnStewart/react-pwa/actions/workflows/ci.yaml)
 [![test:e2e](https://github.com/ShawnStewart/react-pwa/actions/workflows/tests:e2e.yaml/badge.svg)](https://github.com/ShawnStewart/react-pwa/actions/workflows/tests:e2e.yaml)
 
 <a href="https://react-pwa-rosy.vercel.app/" target="_blank" rel="noreferrer">

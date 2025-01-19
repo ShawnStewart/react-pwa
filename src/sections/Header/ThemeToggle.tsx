@@ -1,4 +1,4 @@
-import { BlendingModeIcon } from '@radix-ui/react-icons';
+import { RxBlendingMode } from 'react-icons/rx';
 
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/components/ui/theme';
@@ -17,7 +17,7 @@ export function ThemeToggle() {
           size="icon"
           variant="ghost"
         >
-          <BlendingModeIcon />
+          <RxBlendingMode />
         </Button>
       </TooltipTrigger>
       <TooltipContent>Switch theme</TooltipContent>

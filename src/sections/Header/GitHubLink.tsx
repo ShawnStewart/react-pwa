@@ -1,4 +1,4 @@
-import { GitHubLogoIcon } from '@radix-ui/react-icons';
+import { RxGithubLogo } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
 
 import { buttonVariants } from '@/components/ui/button';
@@ -22,7 +22,7 @@ export function GitHubLink() {
           target="_blank"
           to={repository}
         >
-          <GitHubLogoIcon />
+          <RxGithubLogo />
         </Link>
       </TooltipTrigger>
       <TooltipContent>{"It's open source"}</TooltipContent>

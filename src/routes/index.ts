@@ -1,10 +1,4 @@
-import {
-  ChatBubbleIcon,
-  CheckCircledIcon,
-  GitHubLogoIcon,
-  HomeIcon,
-  ImageIcon,
-} from '@radix-ui/react-icons';
+import { RxChatBubble, RxCheckCircled, RxGithubLogo, RxHome, RxImage } from 'react-icons/rx';
 
 import { asyncComponentLoader } from '@/utils/loader';
 
@@ -16,7 +10,7 @@ export const routes: Routes = {
     component: asyncComponentLoader({
       loadComponentAsync: () => import('@/pages/Welcome'),
     }),
-    icon: HomeIcon,
+    icon: RxHome,
     path: '/',
     title: 'Welcome',
   },
@@ -24,7 +18,7 @@ export const routes: Routes = {
     component: asyncComponentLoader({
       loadComponentAsync: () => import('@/pages/BlankPage'),
     }),
-    icon: GitHubLogoIcon,
+    icon: RxGithubLogo,
     path: '/page-1',
     title: 'Page 1',
   },
@@ -35,7 +29,7 @@ export const routes: Routes = {
         pageNumber: 2,
       },
     }),
-    icon: CheckCircledIcon,
+    icon: RxCheckCircled,
     path: '/page-2',
     title: 'Page 2',
   },
@@ -47,7 +41,7 @@ export const routes: Routes = {
         show404: true,
       },
     }),
-    icon: ImageIcon,
+    icon: RxImage,
     path: '/page-3',
     title: 'Page 3',
   },
@@ -59,7 +53,7 @@ export const routes: Routes = {
         show404: true,
       },
     }),
-    icon: ChatBubbleIcon,
+    icon: RxChatBubble,
     path: '/page-4',
     title: 'Page 4',
   },

@@ -1,4 +1,4 @@
-import { Link1Icon } from '@radix-ui/react-icons';
+import { RxLink1 } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
 
 import { buttonVariants } from '@/components/ui/button';
@@ -26,7 +26,7 @@ export function NavigationMenu({ onNavigationSelect }: NavigationMenuProps) {
               onClick={onNavigationSelect}
               to={path}
             >
-              {Icon ? <Icon /> : <Link1Icon />}
+              {Icon ? <Icon /> : <RxLink1 />}
               <span>{title}</span>
             </Link>
           </li>
