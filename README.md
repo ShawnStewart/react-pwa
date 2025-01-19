@@ -25,6 +25,7 @@ This project is a template for modern web applications, built with React, Vite, 
 - **React**: A JavaScript library for building user interfaces.
 - **Vite**: A fast build tool and development server.
 - **TypeScript**: A strongly typed programming language that builds on JavaScript.
+- **Tailwind CSS**: Utility-first styling.
 
 ## Core features
 
@@ -49,8 +50,7 @@ This project is a template for modern web applications, built with React, Vite, 
 
 - **File structure**: Organized into `components`, `sections`, and `pages`.
 - **Component structure**: Each component has its own folder with related files.
-- **Styling**: Tailwind CSS for utility-first styling.
-- **Imports**: Automatically ordered and grouped import statements.
+- **Code styling**: Preconfigured code formatter and linter.
 
 ## Getting started using the template
 
@@ -94,10 +94,6 @@ There are other scripts as well:
 - `https-preview` - is the same as `preview`, but with HTTPS. It's handy for testing your PWA capabilities in your local environment.
 
 ## [Live Demo](https://react-pwa-rosy.vercel.app/)
-
-<div>
- <img src="./public/demo-dark.png" width="280" title="Dark demo"> <img src="./public/demo-light.png" width="280" title="Light demo">
-</div>
 
 ## License
 
