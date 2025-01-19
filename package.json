@@ -1,16 +1,15 @@
 {
   "name": "react-pwa",
-  "version": "2.3.0",
+  "version": "1.0.0",
   "type": "module",
   "description": "Starter kit for modern web applications",
-  "homepage": "https://react-pwa.surenatoyan.com/",
+  "homepage": "https://react-pwa-rosy.vercel.app/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/suren-atoyan/react-pwa.git"
+    "url": "https://github.com/ShawnStewart/react-pwa"
   },
   "bugs": {
-    "url": "https://github.com/suren-atoyan/react-pwa/issues",
-    "email": "contact@surenatoyan.com"
+    "url": "https://github.com/ShawnStewart/react-pwa/issues"
   },
   "license": "MIT",
   "scripts": {
@@ -89,14 +88,13 @@
     ]
   },
   "author": {
-    "name": "Suren Atoyan",
-    "email": "contact@surenatoyan.com",
-    "url": "http://surenatoyan.com/"
+    "name": "Shawn Stewart"
   },
   "keywords": [
     "react",
     "pwa",
     "starter-kit",
+    "template",
     "vite"
   ]
 }
